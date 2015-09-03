@@ -1,0 +1,16 @@
+<?php
+	/**
+	 * Object represents table 'reverification_midcoursereverificationwindow'
+	 *
+     	 * @author: http://phpdao.com
+     	 * @date: 2015-09-03 19:45	 
+	 */
+	class ReverificationMidcoursereverificationwindow{
+		
+		var $id;
+		var $courseId;
+		var $startDate;
+		var $endDate;
+		
+	}
+?>
