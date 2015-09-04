@@ -1,12 +1,44 @@
 <?php
+
 /**
  * Class that operate on table 'student_courseenrollment'. Database Mysql.
  *
  * @author: http://phpdao.com
  * @date: 2015-09-03 19:31
  */
-class StudentCourseenrollmentMySqlExtDAO extends StudentCourseenrollmentMySqlDAO{
+class StudentCourseenrollmentMySqlExtDAO extends StudentCourseenrollmentMySqlDAO {
 
-	
+    public function querySumStudent() {
+        
+        $sql = "SELECT  c.course_name, 
+                COUNT(*) 'Usuarios_registrados', 
+                SUM(u.is_active) 'Usuarios_activos', 
+                SUM(is_staff) 'Staff' 
+                FROM auth_user u, student_courseenrollment s, course_name c 
+                WHERE 
+                s.course_id = c.course_id AND
+                s.user_id = u.id  AND 
+                s.is_active = 1 
+                GROUP BY s.course_id
+                UNION
+                SELECT 'TOTALES:', 
+                SUM(Usuarios_registrados) 'Total Registrados',
+                SUM(Usuarios_Activos) 'Total activos', 
+                SUM(Staff) 'Total Staff' 
+                FROM (SELECT  s.course_id, COUNT(*) 'Usuarios_registrados', 
+                                SUM(u.is_active) 'Usuarios_Activos', 
+		SUM(is_staff) 'Staff' 
+		FROM auth_user u, student_courseenrollment s, course_name c  
+		WHERE 
+		s.course_id = c.course_id AND
+		s.user_id = u.id  AND 
+		s.is_active = 1
+		GROUP BY s.course_id) as T;";
+        $sqlQuery = new SqlQuery($sql);
+        $result = QueryExecutor::execute($sqlQuery);
+        return $result;
+    }
+
 }
+
 ?>

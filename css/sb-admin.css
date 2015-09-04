@@ -32,6 +32,14 @@ body {
     line-height: normal;
 }
 
+table tr:last-child {
+	color: #fff;
+	background-color: #000;
+}
+
+.navbar{
+    background: #269abc !important;
+}
 @media(min-width:768px) {
     #wrapper {
         padding-left: 225px;
