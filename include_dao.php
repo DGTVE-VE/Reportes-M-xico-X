@@ -46,7 +46,7 @@
 	require_once('dao/mysql/AssessmentAssessmentfeedbackOptionsMySqlDAO.class.php');
 	require_once('dao/mysql/ext/AssessmentAssessmentfeedbackOptionsMySqlExtDAO.class.php');
 	require_once('dao/dao/AssessmentAssessmentfeedbackoptionDAO.class.php');
-	require_once('dao/dto/AssessmentAssessmentfeedbackoption.class.php');
+//	require_once('dao/dto/AssessmentAssessmentfeedbackoption.class.php');
 	require_once('dao/mysql/AssessmentAssessmentfeedbackoptionMySqlDAO.class.php');
 	require_once('dao/mysql/ext/AssessmentAssessmentfeedbackoptionMySqlExtDAO.class.php');
 	require_once('dao/dao/AssessmentAssessmentpartDAO.class.php');
