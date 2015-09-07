@@ -6,10 +6,11 @@ require_once 'include_dao.php';
 $_SESSION['config'] = parse_ini_file("config.ini", true);
 $querySum = DAOFactory::getStudentCourseenrollmentDAO();
 $result = $querySum->querySumStudent();
+$queryTotal = DAOFactory::getAuthUserDAO();
+$total = $queryTotal->queryTotUser();
 //$json = $result;
 //var_dump(json_decode($json));
 //var_dump(json_decode($json, true));
-
 //
 //$result = $querySum->querySumStudent();
 //print_r(json_encode($result));
@@ -17,7 +18,6 @@ $result = $querySum->querySumStudent();
 //$jsonTable = json_encode($result);
 //var_dump(json_decode($result));
 //print_r($jsonTable);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,32 +44,32 @@ $result = $querySum->querySumStudent();
 
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-            
+
 <!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-        JSONres = eval(<?php echo json_encode($result);?>);
-        alert(JSONres);
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
-        ]);
+<script type="text/javascript">
+JSONres = eval(<?php echo json_encode($result); ?>);
+alert(JSONres);
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+var data = google.visualization.arrayToDataTable([
+['Task', 'Hours per Day'],
+['Work',     11],
+['Eat',      2],
+['Commute',  2],
+['Watch TV', 2],
+['Sleep',    7]
+]);
 
-        var options = {
-          title: 'My Daily Activities',
-          is3D: true,
-        };
+var options = {
+title: 'My Daily Activities',
+is3D: true,
+};
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
-      }
-    </script>-->
+var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+chart.draw(data, options);
+}
+</script>-->
     </head>
 
     <body>
@@ -113,37 +113,42 @@ $result = $querySum->querySumStudent();
                                     <table class="table table-striped colortd">
                                         <thead>
                                         <th>Nombre del Curso</th>
-                                        <th>Usuarios Activos</th>
-                                        <th>Usuarios Registrados</th>
-                                        <th>Staff</th>
+                                        <th>Usuarios Inscritos</th>
+<!--                                        <th>Usuarios Registrados</th>
+                                        <th>Staff</th>-->
                                         </thead>
                                         <tbody>
-                                            <?php
-                                            foreach ($result as $row) {
+<?php
+foreach ($result as $row) {
 
-                                                $nombre = $row['course_name'];
-                                                $registrados = $row['Usuarios_registrados'];
-                                                $activos = $row['Usuarios_activos'];
-                                                $staff = $row['Staff'];
+    $nombre = $row['course_name'];
+    $registrados = $row['Usuarios_registrados'];
+//                                                $activos = $row['Usuarios_activos'];
+//                                                $staff = $row['Staff'];
 
-                                                print '<tr>';
-                                                print '<td>';
-                                                print $nombre;
-                                                print '</td>';
-                                                print '<td>';
-                                                print $registrados;
-                                                print '</td>';
-                                                print '<td>';
-                                                print $activos;
-                                                print '</td>';
-                                                print '<td>';
-                                                print $staff;
-                                                print '</td>';
-                                                print '</tr>';
-                                            }
-                                            ?>
+    print '<tr>';
+    print '<td>';
+    print $nombre;
+    print '</td>';
+    print '<td>';
+    print $registrados;
+    print '</td>';
+//                                                print '<td>';
+//                                                print $activos;
+//                                                print '</td>';
+//                                                print '<td>';
+//                                                print $staff;
+//                                                print '</td>';
+    print '</tr>';
+}
+?>
                                         </tbody>
                                     </table>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title"><strong>Total de Usuarios Registrados:    <?php print_r($total[0][0]); ?></strong></h3>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!--Div that will hold the pie chart-->
