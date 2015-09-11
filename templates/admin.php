@@ -1,4 +1,13 @@
+<?php
+require_once 'include_dao.php';
+$mail = $_POST['mail'];
 
+//echo $email;
+$queryCurso = DAOFactory::getCourseNameDAO();
+$resultCurso = $queryCurso->queryAll();
+
+print_r($curso);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +20,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Reportes México X</title>
+        <title>Administración México X</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -46,7 +55,7 @@
 
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i>Reportes</a>
+                        <a href="index.php"><i class="fa fa-fw fa-user-plus"></i>Inscripción en Línea</a>
                     </li>
             </nav>
 

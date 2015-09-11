@@ -1217,7 +1217,12 @@ class DAOFactory{
 	public static function getXblockConfigStudioconfigDAO(){
 		return new XblockConfigStudioconfigMySqlExtDAO();
 	}
-
+	/**
+	 * @return CourseNameDAO
+	 */
+	public static function getCourseNameDAO(){
+		return new CourseNameMySqlExtDAO();
+	}
 
 }
 ?>

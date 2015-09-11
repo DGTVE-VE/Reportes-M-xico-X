@@ -6,6 +6,9 @@ require_once 'include_dao.php';
 //$_SESSION['config'] = parse_ini_file("config.ini", true);
 $querySum = DAOFactory::getStudentCourseenrollmentDAO();
 $result = $querySum->querySumStudent();
+
+$queryUsuarios = DAOFactory::getAuthUserDAO();
+$resultUsuario = $queryUsuarios->queryTotUser();
 //$json = $result;
 //var_dump(json_decode($json));
 //var_dump(json_decode($json, true));
