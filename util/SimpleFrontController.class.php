@@ -8,7 +8,7 @@ class SimpleFrontController {
   protected $controller = self::DEFAULT_CONTROLLER;
   protected $action = self::DEFAULT_ACTION;
   protected $params = array();
-  public static $basePath = 'sisae/';
+  public static $basePath = 'ReportesMX/';
 
   public function __construct(array $options = array()) {
     
@@ -79,6 +79,11 @@ class SimpleFrontController {
 
   public function run() {
 //      var_dump($this->params);
+      
+//      print $this->controller;
+//      print $this->action;
+//      print $this->params;
+      
     call_user_func_array(array(new $this->controller, $this->action), $this->params);
   }
 

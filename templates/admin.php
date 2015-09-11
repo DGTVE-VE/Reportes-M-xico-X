@@ -1,22 +1,4 @@
-<?php
 
-
-header('Content-Type: text/html; charset=utf-8');
-require_once 'include_dao.php';
-//$_SESSION['config'] = parse_ini_file("config.ini", true);
-$querySum = DAOFactory::getStudentCourseenrollmentDAO();
-$result = $querySum->querySumStudent();
-//$json = $result;
-//var_dump(json_decode($json));
-//var_dump(json_decode($json, true));
-//
-//$result = $querySum->querySumStudent();
-//print_r(json_encode($result));
-//htmlentities($result ,ENT_QUOTES,'UTF-8');
-//$jsonTable = json_encode($result);
-//var_dump(json_decode($result));
-//print_r($jsonTable);
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,31 +25,6 @@ $result = $querySum->querySumStudent();
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-<!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript">
-JSONres = eval(<?php echo json_encode($result); ?>);
-alert(JSONres);
-google.load("visualization", "1", {packages:["corechart"]});
-google.setOnLoadCallback(drawChart);
-function drawChart() {
-var data = google.visualization.arrayToDataTable([
-['Task', 'Hours per Day'],
-['Work',     11],
-['Eat',      2],
-['Commute',  2],
-['Watch TV', 2],
-['Sleep',    7]
-]);
-
-var options = {
-title: 'My Daily Activities',
-is3D: true,
-};
-
-var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-chart.draw(data, options);
-}
-</script>-->
     </head>
 
     <body>
