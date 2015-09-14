@@ -1,12 +1,13 @@
 <?php
 require_once 'include_dao.php';
-$mail = $_POST['mail'];
-
-//echo $email;
 $queryCurso = DAOFactory::getCourseNameDAO();
 $resultCurso = $queryCurso->queryAll();
 
-print_r($curso);
+
+//    require('PHPMailer-FE_v4.11/_lib/class.phpmailer.php');
+//    require('PHPMailer-FE_v4.11/_lib/phpmailer-fe.php');
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +34,7 @@ print_r($curso);
 
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        
 
     </head>
 
@@ -55,7 +57,10 @@ print_r($curso);
 
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="index.php"><i class="fa fa-fw fa-user-plus"></i>Inscripción en Línea</a>
+                        <a href="#"><i class="fa fa-fw fa-user-plus"></i>Inscripción en Línea</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-user-plus"></i>Recordatorio de activación</a>
                     </li>
             </nav>
 
