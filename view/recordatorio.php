@@ -1,10 +1,20 @@
 <form name="frmRecordatorio">
     <!--consultar Correos inactivos-->
     <input type="submit" onclick = "this.form.action = 'admin/consultarCorreosInactivos'" value="Consultar Correos Inactivos" />
-    <!--enviar mail-->
+    <br>
     <?php 
-    //print $resulInactivos[0]->mail;
+    $inactivos = unserialize(stripslashes($totalInactivos));   
+    $a = 0;
+    foreach ($inactivos as $value) {
+        $correo = $inactivos[$a]->email;
+        $hash = md5(date('Y-m-d H:i:s'));
+        //$url = 'televisioneducativa.gob.mx:81/ReportesMX/admin/activarUser?m=' . $correo . 'h=' . $hash;
+        $url = 'admin/activarUser/' . $correo . '/' . $hash;
+        print '<a href="'.$url.'">'.$url.'</a>';
+         print "<br>\n";        
+        $a++;
+    }
     ?>
-    <!--<input name="activo" value="0" type="text">-->
-    <input type="submit" onclick = "this.form.action = 'admin/enviarMail1'" value="Enviar mail" />
+    <!--<input type="submit" onclick = "this.form.action = 'admin/enviarMail1'" value="Enviar mail" />-->
 </form>
+

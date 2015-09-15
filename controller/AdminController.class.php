@@ -60,23 +60,42 @@ class AdminController {
 
     public function consultarCorreosInactivos() {
         $activo = 0;
-         $dao = DAOFactory::getAuthUserDAO();
-        $resultInactivos = $dao->queryByIsActive($activo);                
-        $a = 0;
-        foreach ($resultInactivos as $inactivos) {
-          $a++;
-          $correo = $resultInactivos[$a]->email;
-          $hash = md5(date('Y-m-d H:i:s'));
-          $url = 'televisioneducativa.gob.mx:81/ReportesMX/admin/activar/'.$correo.'/'.$hash;
-          print $url;
-          print "<br>\n";
-        }
-          
-//        $_SESSION[VISTA] = 'view/recordatorio.php';
-//        include "templates/admin.php";
+        $dao = DAOFactory::getAuthUserDAO();
+        $resultInactivos = $dao->queryByIsActive($activo);       
+        $totalInactivos = serialize($resultInactivos);
+         $_SESSION[VISTA] = 'view/recordatorio.php';
+        include "templates/admin.php";
     }
-    
-    public function activarUser($param) {
+
+    public function activarUser($m, $h) {
         
+        $daoActiva = DAOFactory::getCorreoActivacionDAO();
+//        insertar registro en tabla Correo_activacion
+//        $altaCorreoActivacion = new CorreoActivacion();
+//        $altaCorreoActivacion->correo = $m;
+//        $altaCorreoActivacion->hash = $h;                
+//        $daoActiva->insert($altaCorreoActivacion);
+        
+//        update usuario activo
+//        $daoUsuario = DAOFactory::getAuthUserDAO();
+//        $consultaUsuario = $daoUsuario->queryByEmail($m);
+        
+        //print_r($consultaUsuario);
+//        $updateUsuario = new AuthUser();
+//        $updateUsuario->id = $consultaUsuario[0]->id;
+//        $updateUsuario->username = $consultaUsuario[0]->username;
+//        $updateUsuario->firstName = $consultaUsuario[0]->firstName;
+//        $updateUsuario->lastName = $consultaUsuario[0]->lastName;
+//        $updateUsuario->email = $consultaUsuario[0]->email;
+//        $updateUsuario->password = $consultaUsuario[0]->password;
+//        $updateUsuario->isStaff = $consultaUsuario[0]->isStaff;
+//        $updateUsuario->is_active = 1;
+//        $updateUsuario->isSuperuser = $consultaUsuario[0]->isSuperuser;
+//        $updateUsuario->lastLogin = $consultaUsuario[0]->lastLogin;
+//        $updateUsuario->dateJoined = $consultaUsuario[0]->dateJoined;        
+//        $daoUsuario->update($updateUsuario);
+         
+//        mostrar vista de MX
     }
+
 }

@@ -1223,6 +1223,11 @@ class DAOFactory{
 	public static function getCourseNameDAO(){
 		return new CourseNameMySqlExtDAO();
 	}
-
+	/**
+	 * @return CorreoActivacionDAO
+	 */
+	public static function getCorreoActivacionDAO(){
+		return new CorreoActivacionMySqlExtDAO();
+	}
 }
 ?>
