@@ -10,5 +10,5 @@ and open the template in the editor.
 
 table tr:last-child {
 	color: white;
-	background-color: black;
+	background-color: black !important; 
 }

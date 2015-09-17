@@ -125,7 +125,7 @@ class AdminController {
         $consultaUsuario[0]->isActive = 1;       
         $daoUsuario->update($consultaUsuario[0]);
 //        mostrar vista de MX
-        include "view/linkactivar.html";
+        include "templates/usuarioActivado.php";
     }
 
 }
