@@ -2,12 +2,6 @@
 require_once 'include_dao.php';
 $queryCurso = DAOFactory::getCourseNameDAO();
 $resultCurso = $queryCurso->queryAll();
-
-
-//    require('PHPMailer-FE_v4.11/_lib/class.phpmailer.php');
-//    require('PHPMailer-FE_v4.11/_lib/phpmailer-fe.php');
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +29,7 @@ $resultCurso = $queryCurso->queryAll();
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         
-
+        
     </head>
 
     <body>

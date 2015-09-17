@@ -45,6 +45,8 @@ $resultUsuario = $queryUsuarios->queryTotUser();
 
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        
+        <link href="css/estilo.css" rel="stylesheet">
 
 <!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
