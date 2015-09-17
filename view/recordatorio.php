@@ -3,6 +3,7 @@
     <input type="submit" onclick = "this.form.action = 'admin/consultarCorreosInactivos'" value="Consultar Correos Inactivos" />
     <br>
     <?php 
+    if (isset($totalInactivos)){
     $inactivos = unserialize(stripslashes($totalInactivos));   
     $a = 0;
     foreach ($inactivos as $value) {
@@ -13,7 +14,7 @@
         print '<a href="'.$url.'">'.$url.'</a>';
          print "<br>\n";        
         $a++;
-    }
+    }}
     ?>
     <!--<input type="submit" onclick = "this.form.action = 'admin/enviarMail1'" value="Enviar mail" />-->
 </form>

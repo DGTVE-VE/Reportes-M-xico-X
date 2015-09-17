@@ -59,43 +59,84 @@ class AdminController {
     }
 
     public function consultarCorreosInactivos() {
+//        Consultar correos inactivos
         $activo = 0;
         $dao = DAOFactory::getAuthUserDAO();
-        $resultInactivos = $dao->queryByIsActive($activo);       
+        $resultInactivos = $dao->queryByIsActive($activo);
         $totalInactivos = serialize($resultInactivos);
-         $_SESSION[VISTA] = 'view/recordatorio.php';
-        include "templates/admin.php";
+        $inactivos = unserialize(stripslashes($totalInactivos));
+
+        $a = 0;
+//        prueba
+            $correo = 'soniamartinezctr@gmail.com';
+            $hash = md5(date('Y-m-d H:i:s'));
+            $url = 'televisioneducativa.gob.mx:81/ReportesMX/admin/activarUser?m=' . $correo . 'h=' . $hash;
+            $para = $correo;
+            $titulo = 'Recordatorio MéxicoX';
+            $mensaje = 'Recuerda activar tu cuenta de MX para hacerlo da clic en la siguiente dirección:'
+                    . $url;
+            $cabeceras = 'From: mexicox@televisioneducativa.gob.mx' . "\r\n" .
+                    'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
+                    'X-Mailer: PHP/' . phpversion();
+//     insertar registro en tabla Correo_activacion
+        $daoActiva = DAOFactory::getCorreoActivacionDAO();
+        $altaCorreoActivacion = new CorreoActivacion();
+        $altaCorreoActivacion->correo = $correo;
+        $altaCorreoActivacion->hash = $hash;                
+        $daoActiva->insert($altaCorreoActivacion);
+        mail($para, $titulo, $mensaje, $cabeceras);
+            
+//        fin prueba
+//        
+//        foreach ($inactivos as $value) {
+//        //alimentar variables
+//            $correo = $inactivos[$a]->email;
+//            $hash = md5(date('Y-m-d H:i:s'));
+//            $url = 'televisioneducativa.gob.mx:81/ReportesMX/admin/activarUser?m=' . $correo . 'h=' . $hash;
+//            $para = $correo;
+//            $titulo = 'Recordatorio MéxicoX';
+//            $mensaje = 'Recuerda activar tu cuenta de MX para hacerlo da clic en la siguiente dirección:'
+//                    . $url;
+//            $cabeceras = 'From: mexicox@televisioneducativa.gob.mx' . "\r\n" .
+//                    'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
+//                    'X-Mailer: PHP/' . phpversion();
+//            
+//            
+//        //     insertar registro en tabla Correo_activacion
+//        $daoActiva = DAOFactory::getCorreoActivacionDAO();
+//        $altaCorreoActivacion = new CorreoActivacion();
+//        $altaCorreoActivacion->correo = $correo;
+//        $altaCorreoActivacion->hash = $hash;                
+//        $daoActiva->insert($altaCorreoActivacion);
+
+//         //enviar mail   
+//            mail($para, $titulo, $mensaje, $cabeceras);
+//            $a++;
+//        }
+//        $_SESSION[VISTA] = 'view/recordatorio.php';
+//        include "templates/admin.php";
     }
 
     public function activarUser($m, $h) {
-        
-        $daoActiva = DAOFactory::getCorreoActivacionDAO();
-//        insertar registro en tabla Correo_activacion
-//        $altaCorreoActivacion = new CorreoActivacion();
-//        $altaCorreoActivacion->correo = $m;
-//        $altaCorreoActivacion->hash = $h;                
-//        $daoActiva->insert($altaCorreoActivacion);
-        
-//        update usuario activo
-//        $daoUsuario = DAOFactory::getAuthUserDAO();
-//        $consultaUsuario = $daoUsuario->queryByEmail($m);
-        
-        //print_r($consultaUsuario);
-//        $updateUsuario = new AuthUser();
-//        $updateUsuario->id = $consultaUsuario[0]->id;
-//        $updateUsuario->username = $consultaUsuario[0]->username;
-//        $updateUsuario->firstName = $consultaUsuario[0]->firstName;
-//        $updateUsuario->lastName = $consultaUsuario[0]->lastName;
-//        $updateUsuario->email = $consultaUsuario[0]->email;
-//        $updateUsuario->password = $consultaUsuario[0]->password;
-//        $updateUsuario->isStaff = $consultaUsuario[0]->isStaff;
-//        $updateUsuario->is_active = 1;
-//        $updateUsuario->isSuperuser = $consultaUsuario[0]->isSuperuser;
-//        $updateUsuario->lastLogin = $consultaUsuario[0]->lastLogin;
-//        $updateUsuario->dateJoined = $consultaUsuario[0]->dateJoined;        
-//        $daoUsuario->update($updateUsuario);
-         
+//        //update usuario activo
+        $daoUsuario = DAOFactory::getAuthUserDAO();
+        $consultaUsuario = $daoUsuario->queryByEmail($m);
+//        activa el usuario en la tabla de AutUser
+        $updateUsuario = new AuthUser();
+        $updateUsuario->id = $consultaUsuario[0]->id;
+        $updateUsuario->username = $consultaUsuario[0]->username;
+        $updateUsuario->firstName = $consultaUsuario[0]->firstName;
+        $updateUsuario->lastName = $consultaUsuario[0]->lastName;
+        $updateUsuario->email = $consultaUsuario[0]->email;
+        $updateUsuario->password = $consultaUsuario[0]->password;
+        $updateUsuario->isStaff = $consultaUsuario[0]->isStaff;
+        $updateUsuario->is_active = 1;
+        $updateUsuario->isSuperuser = $consultaUsuario[0]->isSuperuser;
+        $updateUsuario->lastLogin = $consultaUsuario[0]->lastLogin;
+        $updateUsuario->dateJoined = $consultaUsuario[0]->dateJoined;        
+        $daoUsuario->update($updateUsuario);
 //        mostrar vista de MX
+        include "view/linkactivar.html";
     }
 
 }
