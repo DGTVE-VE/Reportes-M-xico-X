@@ -21,26 +21,12 @@ class AdminController {
     public function enviarRecordatorio() {
         $_SESSION[VISTA] = 'view/recordatorio.php';
         include "templates/admin.php";
-//        print mail('j.israel.toledo@gmail.com', 'Correo Activación México X', '<html><body>Activate aqui: <a href="#"> Activación </a>');
-    }
-
-    public function activar($correo, $hash) {
-        print $correo;
-        print $hash;
-        // COnsulta a la tabla de activacion con el correo y el hash
-        // Select * from correo_activacion where correo = $correo AND hash = $hash    
-        // SI existe el registro activas el usuario auth_user.is_active = 1
-        // Muestra pantalla similar a MX con el encabezado
-        // Con mensaje has sido activado y el botón que envíe a: http://mx.televisioneducativa.gob.mx/login
     }
 
     public function consultarCorreo() {
         $correo = filter_input(INPUT_POST, 'email');
         $queryEmail = DAOFactory::getAuthUserDAO();
         $resultCorreo = $queryEmail->queryByEmail($correo);
-//        if (!isset($resultCorreo[0]->email)) {
-//            print"El correo no existe";
-//        }
         $_SESSION[VISTA] = 'view/inscribeEnCurso.php';
         include "templates/admin.php";
     }
@@ -63,10 +49,8 @@ class AdminController {
         $activo = 0;
         $dao = DAOFactory::getAuthUserDAO();
         $resultInactivos = $dao->queryByIsActive($activo);
-//        foreach ($resultInactivos as $value) {
-        //alimentar variables
-//            $correo = $value->email;
-        $correo = 'soniamartinezctr@gmail.com';
+        foreach ($resultInactivos as $value) {
+        $correo = $value->email;
         $hash = md5(date('Y-m-d H:i:s'));
         $url = 'http://mx.televisioneducativa.gob.mx:81/ReportesMX/admin/activarUser/' . $correo . '/' . $hash;
         $para = $correo;
@@ -91,7 +75,7 @@ class AdminController {
 
         //enviar mail   
         mail($para, $titulo, $mensaje, $cabeceras);
-//        }
+        }
         $_SESSION[VISTA] = 'view/reporteInscritosXCurso.php';
         include "templates/index.php";
     }
