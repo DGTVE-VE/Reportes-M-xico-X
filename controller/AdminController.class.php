@@ -78,6 +78,8 @@ class AdminController {
         $mensaje .= '</body></html>';
         $cabeceras = 'From: mexicox@televisioneducativa.gob.mx' . "\r\n" .
                 'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
+                "MIME-Version: 1.0\r\n". 
+                "Content-Type: text/html; charset=UTF-8\r\n".
                 'X-Mailer: PHP/' . phpversion();
 
         //     insertar registro en tabla Correo_activacion
