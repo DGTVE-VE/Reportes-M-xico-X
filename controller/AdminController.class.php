@@ -71,8 +71,11 @@ class AdminController {
         $url = 'http://mx.televisioneducativa.gob.mx:81/ReportesMX/admin/activarUser/' . $correo . '/' . $hash;
         $para = $correo;
         $titulo = 'Recordatorio MéxicoX';
-        $mensaje = 'Recuerda activar tu cuenta de México X, para hacerlo da click en la siguiente dirección: <br>        '
-                . $url;
+        $mensaje = '<html><body>';
+        $mensaje .= '<h2>Recuerda activar tu cuenta de México X, para hacerlo da click en la siguiente dirección:</h2>';
+        $mensaje .= '<br>';
+        $mensaje .= '<h3>'.$url.'</h3>';
+        $mensaje .= '</body></html>';
         $cabeceras = 'From: mexicox@televisioneducativa.gob.mx' . "\r\n" .
                 'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
                 'X-Mailer: PHP/' . phpversion();
@@ -91,15 +94,18 @@ class AdminController {
         include "templates/index.php";
     }
 
-    public function activarUser($m, $h) {
+    public function activarUser($correo, $hash) {
         $daoActivado = DAOFactory::getCorreoActivacionDAO();
-        $resultActivado = $daoActivado->queryByHashAndCorreo($m, $h);
-        if ($resultActivado != null) {
+        $resultActivado = $daoActivado->queryByHashAndCorreo($correo, $hash);
+        if ($resultActivado != null) {          
+            
 //        //update usuario activo
             $daoUsuario = DAOFactory::getAuthUserDAO();
-            $consultaUsuario = $daoUsuario->queryByEmail($m);
+            $consultaUsuario = $daoUsuario->queryByEmail($correo);
             $consultaUsuario[0]->isActive = 1;
             $daoUsuario->update($consultaUsuario[0]);
+            //            eliminar el registro del correo_activación
+            $daoActivado->deleteByCorreo($correo);
 //        mostrar vista de MX
             include "templates/usuarioActivado.php";
         } else{
