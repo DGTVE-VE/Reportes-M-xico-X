@@ -63,69 +63,49 @@ class AdminController {
         $activo = 0;
         $dao = DAOFactory::getAuthUserDAO();
         $resultInactivos = $dao->queryByIsActive($activo);
-        $totalInactivos = serialize($resultInactivos);
-        $inactivos = unserialize(stripslashes($totalInactivos));
+//        foreach ($resultInactivos as $value) {
+        //alimentar variables
+//            $correo = $value->email;
+        $correo = 'soniamartinezctr@gmail.com';
+        $hash = md5(date('Y-m-d H:i:s'));
+        $url = 'http://mx.televisioneducativa.gob.mx:81/ReportesMX/admin/activarUser/' . $correo . '/' . $hash;
+        $para = $correo;
+        $titulo = 'Recordatorio MéxicoX';
+        $mensaje = 'Recuerda activar tu cuenta de México X, para hacerlo da click en la siguiente dirección: <br>        '
+                . $url;
+        $cabeceras = 'From: mexicox@televisioneducativa.gob.mx' . "\r\n" .
+                'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
 
-        $a = 0;
-//        prueba
-            $correo = 'soniamartinezctr@gmail.com';
-            $hash = md5(date('Y-m-d H:i:s'));
-            $url = 'http://mx.televisioneducativa.gob.mx:81/ReportesMX/admin/activarUser/' . $correo . '/' . $hash;
-            $para = $correo;
-            $titulo = 'Recordatorio MéxicoX';
-            $mensaje = 'Recuerda activar tu cuenta de MéxicoX, para hacerlo da clic en la siguiente dirección:         '
-                    . $url;
-            $cabeceras = 'From: mexicox@televisioneducativa.gob.mx' . "\r\n" .
-                    'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
-                    'X-Mailer: PHP/' . phpversion();
-//     insertar registro en tabla Correo_activacion
+        //     insertar registro en tabla Correo_activacion
         $daoActiva = DAOFactory::getCorreoActivacionDAO();
         $altaCorreoActivacion = new CorreoActivacion();
         $altaCorreoActivacion->correo = $correo;
-        $altaCorreoActivacion->hash = $hash;                
+        $altaCorreoActivacion->hash = $hash;
         $daoActiva->insert($altaCorreoActivacion);
-        print $url;
-        mail($para, $titulo, $mensaje, $cabeceras);
-            
-//        fin prueba
-//        
-//        foreach ($inactivos as $value) {
-//        //alimentar variables
-//            $correo = $inactivos[$a]->email;
-//            $hash = md5(date('Y-m-d H:i:s'));
-//            $url = 'televisioneducativa.gob.mx:81/ReportesMX/admin/activarUser?m=' . $correo . 'h=' . $hash;
-//            $para = $correo;
-//            $titulo = 'Recordatorio MéxicoX';
-//            $mensaje = 'Recuerda activar tu cuenta de MX para hacerlo da clic en la siguiente dirección:'
-//                    . $url;
-//            $cabeceras = 'From: mexicox@televisioneducativa.gob.mx' . "\r\n" .
-//                    'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
-//                    'X-Mailer: PHP/' . phpversion();
-//            
-//            
-//        //     insertar registro en tabla Correo_activacion
-//        $daoActiva = DAOFactory::getCorreoActivacionDAO();
-//        $altaCorreoActivacion = new CorreoActivacion();
-//        $altaCorreoActivacion->correo = $correo;
-//        $altaCorreoActivacion->hash = $hash;                
-//        $daoActiva->insert($altaCorreoActivacion);
 
-//         //enviar mail   
-//            mail($para, $titulo, $mensaje, $cabeceras);
-//            $a++;
+        //enviar mail   
+        mail($para, $titulo, $mensaje, $cabeceras);
 //        }
-//        $_SESSION[VISTA] = 'view/recordatorio.php';
-//        include "templates/admin.php";
+        $_SESSION[VISTA] = 'view/reporteInscritosXCurso.php';
+        include "templates/index.php";
     }
 
     public function activarUser($m, $h) {
+        $daoActivado = DAOFactory::getCorreoActivacionDAO();
+        $resultActivado = $daoActivado->queryByHashAndCorreo($m, $h);
+        if ($resultActivado != null) {
 //        //update usuario activo
-        $daoUsuario = DAOFactory::getAuthUserDAO();
-        $consultaUsuario = $daoUsuario->queryByEmail($m);
-        $consultaUsuario[0]->isActive = 1;       
-        $daoUsuario->update($consultaUsuario[0]);
+            $daoUsuario = DAOFactory::getAuthUserDAO();
+            $consultaUsuario = $daoUsuario->queryByEmail($m);
+            $consultaUsuario[0]->isActive = 1;
+            $daoUsuario->update($consultaUsuario[0]);
 //        mostrar vista de MX
-        include "templates/usuarioActivado.php";
+            include "templates/usuarioActivado.php";
+        } else{
+            header('Location: http://mx.televisioneducativa.gob.mx/');
+        }
+        
     }
 
 }

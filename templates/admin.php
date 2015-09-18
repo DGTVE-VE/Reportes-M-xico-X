@@ -4,7 +4,7 @@ $queryCurso = DAOFactory::getCourseNameDAO();
 $resultCurso = $queryCurso->queryAll();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
     <head>
         <base href="http://<?php print $_SESSION[CONFIG]['host']['url']; ?>">

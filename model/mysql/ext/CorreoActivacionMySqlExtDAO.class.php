@@ -7,6 +7,13 @@
  */
 class CorreoActivacionMySqlExtDAO extends CorreoActivacionMySqlDAO{
 
+    	public function queryByHashAndCorreo($value1, $value2){
+		$sql = 'SELECT * FROM correo_activacion WHERE correo = ? AND hash = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value1);
+                $sqlQuery->set($value2);
+		return $this->getRow($sqlQuery);
+	}
 	
 }
 ?>
