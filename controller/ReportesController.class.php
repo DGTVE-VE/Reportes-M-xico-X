@@ -26,8 +26,20 @@ class ReportesController {
     }
 
     public function porcentajes() {
+        $queryUserprofile = DAOFactory::getAuthUserprofileDAO();
+//        Reporte de Porcentaje por Genero
+        $resultGender = $queryUserprofile->queryPorcentaje();
+//        Reporte de Porcentaje por Edad
+        $resultEdad = $queryUserprofile->queryUserProfileEdad();
+//        Reporte de Porcentaje por Estados
+        $resultEstados = $queryUserprofile->queryEstados();
+//        Reporte de Porcentaje por Nivel de Estudios
+        $resultNivelEstudios = $queryUserprofile->queryNivelEstudios();
+        
         $_SESSION[VISTA] = 'view/reportePorcentajes.php';
         include "templates/index.php";
     }
+    
+    
 
 }

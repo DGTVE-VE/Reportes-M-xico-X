@@ -1,19 +1,3 @@
-<?php
-
-
-//header('Content-Type: text/html; charset=utf-8');
-
-//$json = $result;
-//var_dump(json_decode($json));
-//var_dump(json_decode($json, true));
-//
-//$result = $querySum->querySumStudent();
-//print_r(json_encode($result));
-//htmlentities($result ,ENT_QUOTES,'UTF-8');
-//$jsonTable = json_encode($result);
-//var_dump(json_decode($result));
-//print_r($jsonTable);
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,32 +25,6 @@
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         
         <link href="css/estilo.css" rel="stylesheet">
-
-<!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript">
-JSONres = eval(<?php echo json_encode($result); ?>);
-alert(JSONres);
-google.load("visualization", "1", {packages:["corechart"]});
-google.setOnLoadCallback(drawChart);
-function drawChart() {
-var data = google.visualization.arrayToDataTable([
-['Task', 'Hours per Day'],
-['Work',     11],
-['Eat',      2],
-['Commute',  2],
-['Watch TV', 2],
-['Sleep',    7]
-]);
-
-var options = {
-title: 'My Daily Activities',
-is3D: true,
-};
-
-var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-chart.draw(data, options);
-}
-</script>-->
     </head>
 
     <body>
@@ -88,7 +46,8 @@ chart.draw(data, options);
 
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i>Reportes</a>
+                        <a href="reportes/inscritos"><i class="fa fa-fw fa-users"></i>Usuarios Inscritos</a>
+                        <a href="reportes/porcentajes"><i class="fa fa-fw fa-list-ol"></i>Por Porcentaje</a>
                     </li>
             </nav>
 

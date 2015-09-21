@@ -108,6 +108,6 @@ interface AuthUserprofileDAO{
 
 	public function deleteByCity($value);
 
-
+        //public function queryPorcentaje();
 }
 ?>
