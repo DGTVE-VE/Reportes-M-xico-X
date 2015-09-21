@@ -57,7 +57,7 @@ class CorreoActivacionMySqlDAO implements CorreoActivacionDAO{
  	 * @param CorreoActivacionMySql correoactivacion
  	 */
 	public function insert($correoActivacion){
-            print_r($correoActivacion);
+            //print_r($correoActivacion);
 		$sql = 'INSERT INTO correo_activacion (correo, hash) VALUES (?, ?)';
 		$sqlQuery = new SqlQuery($sql);	
 		$sqlQuery->set($correoActivacion->correo);

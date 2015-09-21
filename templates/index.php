@@ -1,14 +1,8 @@
 <?php
 
 
-header('Content-Type: text/html; charset=utf-8');
-require_once 'include_dao.php';
-//$_SESSION['config'] = parse_ini_file("config.ini", true);
-$querySum = DAOFactory::getStudentCourseenrollmentDAO();
-$result = $querySum->querySumStudent();
+//header('Content-Type: text/html; charset=utf-8');
 
-$queryUsuarios = DAOFactory::getAuthUserDAO();
-$resultUsuario = $queryUsuarios->queryTotUser();
 //$json = $result;
 //var_dump(json_decode($json));
 //var_dump(json_decode($json, true));
