@@ -12,7 +12,7 @@ class AuthUserprofileMySqlExtDAO extends AuthUserprofileMySqlDAO {
         $sql = "SELECT gender as 'Genero',"
                 . " count(gender)/(SELECT count(*) "
                 . "FROM auth_userprofile "
-                . "WHERE gender != '')*100 as '%' "
+                . "WHERE gender != '')*100 as 'porcentaje' "
                 . "FROM auth_userprofile p "
                 . "WHERE gender != '' "
                 . "GROUP BY gender";
@@ -23,7 +23,7 @@ class AuthUserprofileMySqlExtDAO extends AuthUserprofileMySqlDAO {
 
     public function queryUserProfileEdad() {
         $sql = "SELECT COUNT(*)/(SELECT COUNT(*) 
-            FROM auth_userprofile WHERE year_of_birth IS NOT NULL) *100 as '%', 
+            FROM auth_userprofile WHERE year_of_birth IS NOT NULL) *100 as 'porcentaje', 
             CASE
             WHEN Edad <= 15 THEN ' Menores a 15 '
             WHEN Edad >15 AND Edad <=20 THEN '15 - 20'
@@ -37,7 +37,7 @@ class AuthUserprofileMySqlExtDAO extends AuthUserprofileMySqlDAO {
             END AS 'Rangos'
             FROM 
             (SELECT  YEAR(CURDATE()) - year_of_birth as 'Edad' FROM auth_userprofile WHERE year_of_birth IS NOT NULL) as t
-            GROUP BY Rangos;";
+            GROUP BY Rangos order by porcentaje DESC;";
         $sqlQuery = new SqlQuery($sql);
         $result = QueryExecutor::execute($sqlQuery);
         return $result;
@@ -79,7 +79,7 @@ class AuthUserprofileMySqlExtDAO extends AuthUserprofileMySqlDAO {
                 WHEN country = 'YN' THEN 'Yucatán'
                 WHEN country = 'ZS' THEN 'Zacatecas'
                 WHEN country = 'EX' THEN 'Extranjero'
-                END as Estados, count(country)/(SELECT count(*) FROM auth_userprofile WHERE country != '')*100 as '%' FROM auth_userprofile p WHERE country != '' GROUP BY country;";
+                END as Estados, count(country)/(SELECT count(*) FROM auth_userprofile WHERE country != '')*100 as 'Porcentaje' FROM auth_userprofile p WHERE country != '' GROUP BY country order by Porcentaje desc;";
         $sqlQuery = new SqlQuery($sql);
         $result = QueryExecutor::execute($sqlQuery);
         return $result;
@@ -98,12 +98,12 @@ class AuthUserprofileMySqlExtDAO extends AuthUserprofileMySqlDAO {
                 WHEN level_of_education='other' THEN 'Otro'
                 END as Nivel,
                 COUNT(*)/(SELECT COUNT(*) FROM auth_userprofile WHERE level_of_education IS NOT NULL 
-                AND level_of_education != '')*100 as '%'
+                AND level_of_education != '')*100 as 'porcentaje'
                 FROM auth_userprofile 
                 WHERE level_of_education IS NOT NULL 
                 AND level_of_education != ''
                 GROUP BY level_of_education
-                ORDER BY Nivel;";
+                ORDER BY porcentaje DESC;";
         $sqlQuery = new SqlQuery($sql);
         $result = QueryExecutor::execute($sqlQuery);
         return $result;

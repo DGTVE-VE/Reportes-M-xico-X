@@ -11,7 +11,7 @@
 </div>
 <div class="row">                           
     <div class="col-md-6 col-md-offset-3">
-        <table class="table tableInscritos table-striped">
+        <table class="table table-striped inscritos">
             <thead>
             <th>Nombre del Curso</th>
             <th>Usuarios Inscritos</th>

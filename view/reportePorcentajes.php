@@ -40,7 +40,7 @@
                                     if ($genero === 'o') {
                                         $genero = 'Otro';
                                     }
-                                    $porcentaje = $row['%'];
+                                    $porcentaje = round($row['porcentaje'],2);
                                     print '<tr>';
                                     print '<td>';
                                     print $genero;
@@ -76,7 +76,7 @@
                                 <?php
                                 foreach ($resultNivelEstudios as $row3) {
                                     $nivel = $row3[0];
-                                    $porcentaje3 = $row3['%'];
+                                    $porcentaje3 = round($row3['porcentaje'],2);
                                     print '<tr>';
                                     print '<td>';
                                     print $nivel;
@@ -112,7 +112,7 @@
                                 <?php
                                 foreach ($resultEdad as $row1) {
                                     $edad = $row1[1];
-                                    $porcentaje1 = $row1['%'];
+                                    $porcentaje1 = round($row1['porcentaje'],2);
                                     print '<tr>';
                                     print '<td>';
                                     print $edad;
@@ -148,7 +148,7 @@
                                 <?php
                                 foreach ($resultEstados as $row2) {
                                     $estado = $row2[0];
-                                    $porcentaje2 = $row2['%'];
+                                    $porcentaje2 = round($row2['Porcentaje'],2);
                                     print '<tr>';
                                     print '<td>';
                                     print $estado;
