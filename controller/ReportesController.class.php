@@ -40,6 +40,12 @@ class ReportesController {
         include "templates/index.php";
     }
     
+    public function usuariosActivos ($fecha = '2015-09-21'){
+        $fecha .= ' 00:00:00';
+        $resultado = DAOFactory::getCoursewareStudentmoduleDAO()->queryUsuariosActivosDesde($fecha);
+        $_SESSION[VISTA] = 'view/reporteUsuariosActivos.php';
+        include "templates/index.php";
+    }
     
 
 }
