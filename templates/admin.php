@@ -51,10 +51,10 @@ $resultCurso = $queryCurso->queryAll();
 
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="#"><i class="fa fa-fw fa-user-plus"></i>Inscripción en Línea</a>
+                        <a href="admin/inscribirEnCurso"><i class="fa fa-fw fa-user-plus"></i>Inscripción en Línea</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-user-plus"></i>Recordatorio de activación</a>
+                        <a href="admin/enviarRecordatorio"><i class="fa fa-fw fa-user-plus"></i>Recordatorio de activación</a>
                     </li>
             </nav>
 

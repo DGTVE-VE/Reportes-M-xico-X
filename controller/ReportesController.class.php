@@ -40,6 +40,30 @@ class ReportesController {
         include "templates/index.php";
     }
     
+    public function descarga() {
+        $_SESSION[VISTA] = 'view/descargaReporte.php';
+        include "templates/index.php";        
+    }
     
+    public function descargaArchivo(){
+        $curso = $_POST['cursoDescarga'];
+        $queryCurso = DAOFactory::getCourseNameDAO();
+        $resultCurso = $queryCurso->queryByCourseId($curso);
+        $cursoId = $resultCurso[0]->courseId;
+        //$url = "C:/Users/SMARTINEZ/Desktop/".$cursoId.".csv";
+        $url = "C:/Users/SMARTINEZ/Desktop/UsuariosEDX.csv";
+//        $queryDes = DAOFactory::getStudentCourseenrollmentDAO();
+//        $resultDes = $queryDes->queryDescarga($cursoId, $url);
+        
+        if (file_exists($url)) {
+            echo 'Descargue el archivo:';
+            $_SESSION[VISTA] = 'view/descargaArchivo.php';
+            include "templates/index.php"; 
+        } else {
+            echo "El fichero no se podrá descargar";
+            $_SESSION[VISTA] = 'view/descargaArchivo.php';
+            include "templates/index.php";             
+        }
+    }
 
 }

@@ -12,7 +12,11 @@
  * @author Israel
  */
 class AdminController {
-
+    public function defaultAction (){
+        $_SESSION[VISTA] = 'view/inscribeEnCurso.php';
+        include "templates/admin.php";
+    }
+    
     public function inscribirEnCurso() {
         $_SESSION[VISTA] = 'view/inscribeEnCurso.php';
         include "templates/admin.php";

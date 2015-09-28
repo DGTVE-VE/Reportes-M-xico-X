@@ -20,6 +20,10 @@
             </thead>
             <tbody>
                 <?php
+                if (!isset($result)){
+                    $querySum = DAOFactory::getStudentCourseenrollmentDAO();
+                    $result = $querySum->querySumStudent();
+                }
                 foreach ($result as $row) {
 
                     $nombre = $row['course_name'];
