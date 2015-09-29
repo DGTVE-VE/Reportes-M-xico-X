@@ -7,3 +7,10 @@ and open the template in the editor.
     Created on : 21/09/2015, 05:49:23 PM
     Author     : SMARTINEZ
 */
+*{
+    /*border: 2px solid red;*/
+}
+
+.centerBtn{
+    margin-top: 2%;
+}

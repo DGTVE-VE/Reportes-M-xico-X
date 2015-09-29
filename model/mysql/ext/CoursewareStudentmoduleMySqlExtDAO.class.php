@@ -8,17 +8,21 @@
  */
 class CoursewareStudentmoduleMySqlExtDAO extends CoursewareStudentmoduleMySqlDAO {
 
-    public function queryUsuariosActivosDesde ($fecha) {
+    public function queryUsuariosActivosDesde ($fechaStart, $fechaEnd) {
+        
         $sql = "SELECT COUNT(*) 'Usuarios', course_name, fecha
                 FROM (
                 SELECT DISTINCT
                 student_id, course_name, date(created) fecha
                 FROM courseware_studentmodule c, course_name n
-                WHERE c.course_id = n.course_id AND created >= ?
+                WHERE c.course_id = n.course_id AND created 
+                BETWEEN  ? AND ?
                 ) as T 
-                GROUP BY course_name, fecha;";
+                GROUP BY course_name, fecha;";        
         $sqlQuery = new SqlQuery($sql);
-        $sqlQuery->set($fecha);
+        $sqlQuery->set($fechaStart);
+         $sqlQuery->set($fechaEnd);
+//         print $sqlQuery->getQuery();
         $result = QueryExecutor::execute($sqlQuery);
         return $result;
     }

@@ -8,39 +8,17 @@
         </div>
     </div>
 </div>
-<div class="row">                           
-    <div class="col-md-6 col-md-offset-3">
-        <table class="table table-striped inscritos">
-            <thead>
-            <th>Nombre del Curso</th>
-            <th>Usuarios Inscritos</th>
-            </thead>
-            <tbody>
-                <?php
-                foreach ($result as $row) {
+<div class="row">   
+    <div class="container" id="sandbox-container">
+        <form method="post">
+            <div class="input-daterange input-group" id="datepicker">
 
-                    $nombre = $row['course_name'];
-                    $registrados = $row['Usuarios_registrados'];
-
-                    print '<tr>';
-                    print '<td>';
-                    print $nombre;
-                    print '</td>';
-                    print '<td>';
-                    print $registrados;
-                    print '</td>';
-                    print '</tr>';
-                }
-                ?>
-            </tbody>
-        </table>
-        <div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <strong><?php echo 'Total de Usuarios Registrados:   ' . $resultUsuario[0][0]; ?></strong>
-                </div>
-
-            </div>
-        </div>
+                <span class="input-group-addon">Rango de Fechas</span>
+                <input class="input-sm form-control" name="start" id="start" type="text">
+                <span class="input-group-addon">y</span>
+                <input class="input-sm form-control" name="end" id="end" type="text">
+            </div> 
+            <br>
+            <input type="submit" class="btn btn-info" onclick = "this.form.action = 'reportes/usuariosActivo'" value="Generar Reporte" />
+         </form>
     </div>
-</div>

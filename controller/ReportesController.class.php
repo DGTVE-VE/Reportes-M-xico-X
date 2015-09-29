@@ -56,14 +56,25 @@ class ReportesController {
 //        $resultDes = $queryDes->queryDescarga($cursoId, $url);
         
         if (file_exists($url)) {
-            echo 'Descargue el archivo:';
             $_SESSION[VISTA] = 'view/descargaArchivo.php';
             include "templates/index.php"; 
         } else {
-            echo "El fichero no se podrá descargar";
-            $_SESSION[VISTA] = 'view/descargaArchivo.php';
+            $_SESSION[VISTA] = 'view/descargaReporte.php';
             include "templates/index.php";             
         }
     }
-
+    
+    public function usuariosActivo (){
+        $fechaEnd = filter_input(INPUT_POST, 'end');
+        $fechaStart = filter_input(INPUT_POST, 'start');
+        //$fecha .= ' 00:00:00';// $fecha = $fecha . '...';
+        $resultado = DAOFactory::getCoursewareStudentmoduleDAO()->queryUsuariosActivosDesde($fechaStart, $fechaEnd);
+//        print_r($resultado);
+        $_SESSION[VISTA] = 'view/reporteUsuariosActivo.php';
+        include "templates/index.php";
+    }
+    public function usuariosActivos (){
+        $_SESSION[VISTA] = 'view/reporteUsuariosActivos.php';
+        include "templates/index.php";
+    }
 }

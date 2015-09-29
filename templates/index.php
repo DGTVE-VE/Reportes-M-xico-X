@@ -25,6 +25,10 @@
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         
         <link href="css/estilo.css" rel="stylesheet">
+        
+        <!-- Datepicker -->
+        <link href="css/datepicker.css" rel="stylesheet" type="text/css">
+        <link href="css/datepicker.less" rel="stylesheet" type="text/css">
     </head>
 
     <body>
@@ -49,6 +53,7 @@
                         <a href="reportes/inscritos"><i class="fa fa-fw fa-users"></i>Usuarios Inscritos</a>
                         <a href="reportes/porcentajes"><i class="fa fa-fw fa-list-ol"></i>Por Porcentaje</a>
                         <a href="reportes/descarga"><i class="fa fa-fw fa-download"></i>Descarga Reporte</a>
+                        <a href="reportes/usuariosActivos"><i class="fa fa-fw fa-download"></i>Usuarios Activos</a>
                     </li>
             </nav>
 
@@ -76,6 +81,8 @@
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
 
+    <!-- Datepicker -->
+    <script src="js/bootstrap-datepicker.js"></script>
 </body>
 
 </html>
