@@ -56,13 +56,13 @@ class ReportesController {
         $queryDes = DAOFactory::getStudentCourseenrollmentDAO();
         $resultDes = $queryDes->queryDescarga($cursoId, $url);
         
-        if (file_exists($url)) {
+       // if (file_exists($url)) {
             $_SESSION[VISTA] = 'view/descargaArchivo.php';
             include "templates/index.php"; 
-        } else {
-            $_SESSION[VISTA] = 'view/descargaReporte.php';
-            include "templates/index.php";             
-        }
+      //  } else {
+      //      $_SESSION[VISTA] = 'view/descargaReporte.php';
+        //    include "templates/index.php";             
+       // }
     }
     
     public function usuariosActivo (){
