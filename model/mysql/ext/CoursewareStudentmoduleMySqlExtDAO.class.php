@@ -9,7 +9,10 @@
 class CoursewareStudentmoduleMySqlExtDAO extends CoursewareStudentmoduleMySqlDAO {
 
     public function queryUsuariosActivosDesde ($fechaStart, $fechaEnd) {
-        
+        $fechaStart .= ' 00:00:00';
+        $fechaEnd .= ' 23:59:59';
+        print_r($fechaEnd);
+        print_r($fechaStart);
         $sql = "SELECT COUNT(*) 'Usuarios', course_name, fecha
                 FROM (
                 SELECT DISTINCT

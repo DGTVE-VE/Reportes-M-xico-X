@@ -6,7 +6,8 @@
                 if (isset($url)){                    
                  ?>
                     <h5>Abrir archivo</h5>
-                    <input type="submit" name="url" value="<?php echo $url?>" />
+                    <a href="<?php print $url;?>"> Reporte </a>
+                    <!--<input type="submit" name="url" value="<?php// echo $url?>" />-->
                 <?php
                 }
             ?>

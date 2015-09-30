@@ -12,7 +12,7 @@
     <?php
     if (isset($resultado)) {
         ?>
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-7 col-md-offset-2">
             <table class="table table-striped inscritos">
                 <thead>
                 <th>Usuarios</th>

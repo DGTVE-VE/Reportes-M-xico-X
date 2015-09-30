@@ -53,7 +53,7 @@
                         <a href="reportes/inscritos"><i class="fa fa-fw fa-users"></i>Usuarios Inscritos</a>
                         <a href="reportes/porcentajes"><i class="fa fa-fw fa-list-ol"></i>Por Porcentaje</a>
                         <a href="reportes/descarga"><i class="fa fa-fw fa-download"></i>Descarga Reporte</a>
-                        <a href="reportes/usuariosActivos"><i class="fa fa-fw fa-download"></i>Usuarios Activos</a>
+                        <a href="reportes/usuariosActivos"><i class="fa fa-fw fa-user"></i>Usuarios Activos</a>
                     </li>
             </nav>
 
