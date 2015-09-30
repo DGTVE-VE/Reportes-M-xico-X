@@ -57,7 +57,7 @@ class ReportesController {
         $resultDes = $queryDes->queryDescarga($cursoId, $url);
         
        // if (file_exists($url)) {
-            $_SESSION[VISTA] = 'view/descargaArchivo.php';
+            $_SESSION[VISTA] = 'view/descargaArchivo1.php';
             include "templates/index.php"; 
       //  } else {
       //      $_SESSION[VISTA] = 'view/descargaReporte.php';
