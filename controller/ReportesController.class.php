@@ -55,7 +55,7 @@ class ReportesController {
 //        $url = "C:/Users/SMARTINEZ/Desktop/UsuariosEDX.csv";
         $queryDes = DAOFactory::getStudentCourseenrollmentDAO();
         $resultDes = $queryDes->queryDescarga($cursoId, $url);
-        
+        print $url1;
        // if (file_exists($url)) {
             $_SESSION[VISTA] = 'view/descargaArchivo1.php';
             include "templates/index.php"; 
