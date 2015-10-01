@@ -4,7 +4,9 @@
         <div class="col-md-12">
             <?php                 
                 if (isset($url1)){                    
+                    print $resultDes;
                  ?>
+                    
                     <h5>Abrir archivo</h5>
                     <a href="<?php print $url1;?>"> Reporte </a>
                 <?php
