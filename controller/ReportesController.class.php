@@ -51,11 +51,10 @@ class ReportesController {
         $resultCurso = $queryCurso->queryByCourseId($curso);
         $cursoId = $resultCurso[0]->courseId;
         $url1 = "downloads/".$cursoId.".csv";
-       $url = "/var/www/ReportesMX/downloads/".$cursoId.".csv";
-//        $url = "C:/Users/SMARTINEZ/Desktop/UsuariosEDX.csv";
+//       $url = "/var/www/ReportesMX/downloads/".$cursoId.".csv";
+        $url = "tmp/".$cursoId.".csv";
         $queryDes = DAOFactory::getStudentCourseenrollmentDAO();
         $resultDes = $queryDes->queryDescarga($cursoId, $url);
-        print $url1;
        // if (file_exists($url)) {
             $_SESSION[VISTA] = 'view/descargaArchivo1.php';
             include "templates/index.php"; 
