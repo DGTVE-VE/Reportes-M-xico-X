@@ -4,9 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/ReportesMX/controller/ReportesController.class.php</file>
-            <file>file:/C:/xampp/htdocs/ReportesMX/model/mysql/ext/StudentCourseenrollmentMySqlExtDAO.class.php</file>
-            <file>file:/C:/xampp/htdocs/ReportesMX/view/DescargaReporte.php</file>
-            <file>file:/C:/xampp/htdocs/ReportesMX/view/descargaArchivo.php</file>
+            <file>file:/C:/xampp/htdocs/ReportesMX/view/descargaArchivo1.php</file>
+            <file>file:/C:/xampp/htdocs/ReportesMX/view/descargaReporte.php</file>
         </group>
     </open-files>
 </project-private>
