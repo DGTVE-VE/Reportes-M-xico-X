@@ -59,6 +59,7 @@ class StudentCourseenrollmentMySqlExtDAO extends StudentCourseenrollmentMySqlDAO
                 $sqlQuery->set($url);                
                 $result = QueryExecutor::execute($sqlQuery);
                 return $result;
+                print_r($result);
     }
 }
 
