@@ -52,7 +52,8 @@ class ReportesController {
         $cursoId = $resultCurso[0]->courseId;
         $cursoNombre = $resultCurso[0]->courseName;
 //       $url = "/var/www/ReportesMX/downloads/".$cursoId.".csv";
-        $url = "/tmp/".$cursoNombre.".csv";
+        $url = "/var/www/ReportesMX/downloads/".$cursoNombre.".csv";
+        $url1 = $cursoNombre.".csv";
         $queryDes = DAOFactory::getStudentCourseenrollmentDAO();
         $resultDes = $queryDes->queryDescarga($cursoId, $url);
        // if (file_exists($url)) {
