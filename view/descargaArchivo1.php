@@ -3,12 +3,12 @@
         <form method="post" name="frmDescarga">
         <div class="col-md-12">
             <?php                 
-                if (isset($url1)){                    
-                    print $resultDes;
+                if (isset($url)){                    
+                    print_r($resultCurso);
                  ?>
                     
                     <h5>Abrir archivo</h5>
-                    <a href="<?php print $url1;?>"> Reporte </a>
+                    <a href="<?php print $url;?>"><?php print $url;?> </a>
                 <?php
                 }
             ?>
