@@ -38,7 +38,7 @@ class StudentCourseenrollmentMySqlExtDAO extends StudentCourseenrollmentMySqlDAO
         $result = QueryExecutor::execute($sqlQuery);
         return $result;
     }
-    public function queryDescarga($cursoId,$url) {
+    public function queryDescarga($cursoId,$url) {       
         $sql = "SELECT 
                 p.name, 
                 u.email, 
@@ -49,12 +49,14 @@ class StudentCourseenrollmentMySqlExtDAO extends StudentCourseenrollmentMySqlDAO
                 FROM auth_user u, auth_userprofile p, student_courseenrollment c 
                 WHERE 	p.user_id = c.user_id 
                 AND 	u.id = p.user_id
-                AND 	course_id = '".$cursoId."'
-                INTO OUTFILE '".$url."'
+                AND 	course_id = ?
+                INTO OUTFILE ?
                 FIELDS TERMINATED BY ','
                 ENCLOSED BY '\"'
                 LINES TERMINATED BY '\\r\\n';";
                 $sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($cursoId);
+                $sqlQuery->set($url);                
                 $result = QueryExecutor::execute($sqlQuery);
                 return $result;
     }
