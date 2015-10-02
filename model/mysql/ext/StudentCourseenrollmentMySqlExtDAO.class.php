@@ -53,13 +53,12 @@ class StudentCourseenrollmentMySqlExtDAO extends StudentCourseenrollmentMySqlDAO
                 INTO OUTFILE ?
                 FIELDS TERMINATED BY ','
                 ENCLOSED BY '\"'
-                LINES TERMINATED BY '\\r\\n';";
+                LINES TERMINATED BY '\r\n';";
                 $sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($cursoId);
                 $sqlQuery->set($url);                
                 $result = QueryExecutor::execute($sqlQuery);
                 return $result;
-                print_r($result);
     }
 }
 
