@@ -9,7 +9,7 @@
 class StudentCourseenrollmentMySqlExtDAO extends StudentCourseenrollmentMySqlDAO {
 
     public function querySumStudent() {
-        
+
         $sql = "SELECT  c.course_name, 
                 COUNT(*) 'Usuarios_registrados', 
                 SUM(u.is_active) 'Usuarios_activos', 
@@ -38,28 +38,22 @@ class StudentCourseenrollmentMySqlExtDAO extends StudentCourseenrollmentMySqlDAO
         $result = QueryExecutor::execute($sqlQuery);
         return $result;
     }
-    public function queryDescarga($cursoId,$url) {       
-        $sql = "SELECT 
-                p.name, 
-                u.email, 
-                p.year_of_birth, 
-                p.level_of_education, 
-                p.gender, 
-                p.country
-                FROM auth_user u, auth_userprofile p, student_courseenrollment c 
-                WHERE 	p.user_id = c.user_id 
-                AND 	u.id = p.user_id
-                AND 	course_id = ?
-                INTO OUTFILE ?
-                FIELDS TERMINATED BY ','
-                ENCLOSED BY '\"'
-                LINES TERMINATED BY '\r\n';";
-                $sqlQuery = new SqlQuery($sql);
-		$sqlQuery->set($cursoId);
-                $sqlQuery->set($url);                
-                $result = QueryExecutor::execute($sqlQuery);
-                return $result;
+
+    public function queryDescarga($cursoId, $url) {
+        $sql = "SELECT p.name,u.email,p.year_of_birth,"
+                . "p.level_of_education,p.gender,p.country "
+                . "FROM auth_user u, auth_userprofile p, "
+                . "student_courseenrollment c WHERE p.user_id = c.user_id"
+                . "  AND u.id = p.user_id AND course_id = ? "
+                . "INTO OUTFILE ? FIELDS TERMINATED BY ',' "
+                . "ENCLOSED BY '\"' LINES TERMINATED BY '\r\n';";
+        $sqlQuery = new SqlQuery($sql);
+        $sqlQuery->set($cursoId);
+        $sqlQuery->set($url);
+        $result = QueryExecutor::execute($sqlQuery);
+        return $result;
     }
+
 }
 
 ?>
