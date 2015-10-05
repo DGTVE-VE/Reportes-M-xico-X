@@ -16,13 +16,14 @@
             <button onclick = "sendData ()" value="Descarga Reporte" />
         </div>
         </form>
-        <iframe id="iframe_download" style="visibility:hidden;display:none"> </iframe>        
+        <iframe src="" id="iframe_download" style="visibility:hidden;display:none"> </iframe>        
     </div>
 </div>    
 <script>
     function sendData (){
         var e = document.getElementById("cursoDescarga");
         var courseId = e.options[e.selectedIndex].value;
+        
         $('#iframe_download').src="reportes/descargaArchivo/?courseId=" + courseId;
 //        var e = document.getElementById("cursoDescarga");
 //        var valor = e.options[e.selectedIndex].value;
