@@ -24,6 +24,7 @@
         var e = document.getElementById("cursoDescarga");
         var courseId = e.options[e.selectedIndex].value;
         var url = "reportes/descargaArchivo/?courseId=" + courseId;
+        alert (url);
         window.location.assign(url);
 //        $('#iframe_download').src=";
 //        var e = document.getElementById("cursoDescarga");
