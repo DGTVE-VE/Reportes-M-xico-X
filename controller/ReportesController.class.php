@@ -45,8 +45,10 @@ class ReportesController {
         include "templates/index.php";
     }
 
-    public function descargaArchivo() {
-        $curso = $_POST['cursoDescarga'];
+    public function descargaArchivo($curso = '') {
+        if ($curso == ''){
+            $curso = $_POST['cursoDescarga'];
+        }
         $queryCurso = DAOFactory::getCourseNameDAO();
         $resultCurso = $queryCurso->queryByCourseId($curso);
         $cursoId = $resultCurso[0]->courseId;
