@@ -23,8 +23,9 @@
     function sendData (){
         var e = document.getElementById("cursoDescarga");
         var courseId = e.options[e.selectedIndex].value;
-        
-        $('#iframe_download').src="reportes/descargaArchivo/?courseId=" + courseId;
+        var url = "reportes/descargaArchivo/?courseId=" + courseId;
+        window.location.assign(url);
+//        $('#iframe_download').src=";
 //        var e = document.getElementById("cursoDescarga");
 //        var valor = e.options[e.selectedIndex].value;
 //        alert (valor);
