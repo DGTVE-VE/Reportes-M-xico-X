@@ -19,13 +19,14 @@
     </div>
 </div>    
 <script>
-    function sendData (guia, respuesta ){
+    function sendData (){
         var e = document.getElementById("cursoDescarga");
         var valor = e.options[e.selectedIndex].value;
+        
         $.ajax({
             method: "POST",
             url: "reportes/descargaArchivo/",
-           data: { courseId: valor }
+           data: { cursoDescarga: valor }
         })
         .done(function( msg ) {            
             console.log(msg);         

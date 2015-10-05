@@ -51,6 +51,7 @@ class ReportesController {
         $resultCurso = $queryCurso->queryByCourseId($curso);
         $cursoId = $resultCurso[0]->courseId;
         $cursoNombre = $resultCurso[0]->courseName;
+        
         $url = "//tmp/" . $cursoNombre . ".csv";
         $queryDes = DAOFactory::getStudentCourseenrollmentDAO();
         $resultDes = $queryDes->queryDescarga($cursoId, $url);
