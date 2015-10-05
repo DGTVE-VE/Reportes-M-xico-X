@@ -24,8 +24,8 @@
         var e = document.getElementById("cursoDescarga");
         var courseId = e.options[e.selectedIndex].value;
         var url = "http://mx.televisioneducativa.gob.mx:81/ReportesMX/reportes/descargaArchivo/?courseId=" + courseId;
-        alert (url);
-        document.location = url;
+        console.log(url);
+        window.open(url);
 //        $('#iframe_download').src=";
 //        var e = document.getElementById("cursoDescarga");
 //        var valor = e.options[e.selectedIndex].value;
