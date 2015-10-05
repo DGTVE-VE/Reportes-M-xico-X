@@ -50,8 +50,8 @@ class ReportesController {
         $queryCurso = DAOFactory::getCourseNameDAO();
         $resultCurso = $queryCurso->queryByCourseId($curso);
         $cursoId = $resultCurso[0]->courseId;
-        $cursoNombre = $resultCurso[0]->courseName;
-        
+        $fecha =  date('Y-m-d H:i:s');
+        $cursoNombre = $resultCurso[0]->courseName . $fecha;       
         $url = "//tmp/" . $cursoNombre . ".csv";
         $queryDes = DAOFactory::getStudentCourseenrollmentDAO();
         $resultDes = $queryDes->queryDescarga($cursoId, $url);
@@ -59,8 +59,6 @@ class ReportesController {
     }
 
     private function download($filename) {
-//        $filename = $_GET['file'];
-//        $filename = '/tmp/' . $filename;
         // required for IE, otherwise Content-disposition is ignored
         if (ini_get('zlib.output_compression'))
             ini_set('zlib.output_compression', 'Off');
@@ -76,14 +74,6 @@ class ReportesController {
             exit;
         };
         $ctype = $this->getContentType($file_extension);
-        
-//        print 'Si llego';
-//        print '<br>';
-//        print $filename;
-//        print '<br>';
-//        print $file_extension;
-//        print '<br>';
-//        print $ctype;
         header("Pragma: public"); // required
         header("Expires: 0");
         header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
