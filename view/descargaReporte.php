@@ -13,7 +13,7 @@
             </select>
         </div>
         <div class="col-md-2">
-            <button onclick = "sendData ()" value="Descarga Reporte" />
+            <button onclick = "sendData ()"> Descarga Reporte </button>
         </div>
         </form>
         <iframe src="" id="iframe_download" style="visibility:hidden;display:none"> </iframe>        
@@ -25,7 +25,7 @@
         var courseId = e.options[e.selectedIndex].value;
         var url = "reportes/descargaArchivo/?courseId=" + courseId;
         alert (url);
-        window.location.assign(url);
+        window.location = url;
 //        $('#iframe_download').src=";
 //        var e = document.getElementById("cursoDescarga");
 //        var valor = e.options[e.selectedIndex].value;
