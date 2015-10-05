@@ -22,7 +22,7 @@
     function sendData (){
         var e = document.getElementById("cursoDescarga");
         var valor = e.options[e.selectedIndex].value;
-        
+        alert (valor);
         $.ajax({
             method: "POST",
             url: "reportes/descargaArchivo/",
