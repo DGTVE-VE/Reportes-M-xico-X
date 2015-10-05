@@ -2,7 +2,7 @@
     <div class="row">
         <form method="post" name="frmDescarga">
         <div class="col-md-5">
-            <select name="cursoDescarga">
+            <select id="cursoDescarga">
                 <?php
                 $queryCurso = DAOFactory::getCourseNameDAO();
                 $resultCurso = $queryCurso->queryAll();
@@ -13,8 +13,23 @@
             </select>
         </div>
         <div class="col-md-2">
-            <input type="submit" onclick = "this.form.action = 'reportes/descargaArchivo'" value="Descarga Reporte" />
+            <button onclick = "sendData ()" value="Descarga Reporte" />
         </div>
         </form>
     </div>
 </div>    
+<script>
+    function sendData (guia, respuesta ){
+        var e = document.getElementById("cursoDescarga");
+        var valor = e.options[e.selectedIndex].value;
+        $.ajax({
+            method: "POST",
+            url: "reportes/descargaArchivo/",
+           data: { courseId: valor }
+        })
+        .done(function( msg ) {            
+            console.log(msg);         
+        });
+    }
+</script>
+    
