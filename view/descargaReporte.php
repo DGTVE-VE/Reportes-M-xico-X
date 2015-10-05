@@ -16,21 +16,25 @@
             <button onclick = "sendData ()" value="Descarga Reporte" />
         </div>
         </form>
+        <iframe id="iframe_download" style="visibility:hidden;display:none"> </iframe>        
     </div>
 </div>    
 <script>
     function sendData (){
         var e = document.getElementById("cursoDescarga");
-        var valor = e.options[e.selectedIndex].value;
-        alert (valor);
-        $.ajax({
-            method: "POST",
-            url: "reportes/descargaArchivo/",
-           data: { cursoDescarga: valor }
-        })
-        .done(function( msg ) {            
-            console.log(msg);         
-        });
+        var courseId = e.options[e.selectedIndex].value;
+        $('#iframe_download').src="reportes/descargaArchivo/?courseId=" + courseId;
+//        var e = document.getElementById("cursoDescarga");
+//        var valor = e.options[e.selectedIndex].value;
+//        alert (valor);
+//        $.ajax({
+//            method: "POST",
+//            url: "reportes/descargaArchivo/",
+//           data: { cursoDescarga: valor }
+//        })
+//        .done(function( msg ) {            
+//            console.log(msg);         
+//        });
     }
 </script>
     

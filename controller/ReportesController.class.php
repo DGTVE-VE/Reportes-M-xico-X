@@ -45,10 +45,8 @@ class ReportesController {
         include "templates/index.php";
     }
 
-    public function descargaArchivo($curso = 'TecNM.MX/ACF-0903-1/2015_T2') {
-//        if ($curso == ''){
-//            $curso = $_POST['cursoDescarga'];
-//        }
+    public function descargaArchivo() {
+        $curso = $_GET['courseId'];
         $queryCurso = DAOFactory::getCourseNameDAO();
         $resultCurso = $queryCurso->queryByCourseId($curso);
         $cursoId = $resultCurso[0]->courseId;
