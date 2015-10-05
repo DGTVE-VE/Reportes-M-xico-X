@@ -23,7 +23,7 @@
     function sendData (){
         var e = document.getElementById("cursoDescarga");
         var courseId = e.options[e.selectedIndex].value;
-        var url = "reportes/descargaArchivo/?courseId=" + courseId;
+        var url = "http://mx.televisioneducativa.gob.mx:81/ReportesMX/reportes/descargaArchivo/?courseId=" + courseId;
         alert (url);
         window.location = url;
 //        $('#iframe_download').src=";
