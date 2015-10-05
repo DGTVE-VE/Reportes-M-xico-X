@@ -28,7 +28,7 @@
         
         <!-- Datepicker -->
         <link href="css/datepicker.css" rel="stylesheet" type="text/css">
-        <link href="css/datepicker.less" rel="stylesheet" type="text/css">
+        <!--<link href="css/datepicker.less" rel="stylesheet" type="text/css">-->
     </head>
 
     <body>

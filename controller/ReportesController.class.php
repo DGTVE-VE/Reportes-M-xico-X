@@ -86,7 +86,8 @@ class ReportesController {
         header("Content-Transfer-Encoding: binary");
         header("Content-Length: " . filesize($filename));
         readfile("$filename");
-        exit();
+        
+//        exit();
     }
     
     private function getContentType ($file_extension){
