@@ -109,6 +109,42 @@ class AuthUserprofileMySqlExtDAO extends AuthUserprofileMySqlDAO {
         return $result;
     }
 
+//    prueba de query
+//                        a.email, 
+//                    b.id,
+//                    b.user_id, 
+//                    b.name, 
+//                    b.language,
+//                    b.location,
+//                    b.meta,
+//                    b.courseware,
+//                    b.gender, 
+//                    b.mailing_address,
+//                    b.year_of_birth, 
+//                    b.level_of_education,
+//                    b.goals,
+//                    b.allow_certificate,
+//                    b.country, 
+//                    b.city
+
+    
+    public function queryUsuario($value) {
+        $sql = 'select 
+                    a.email, 
+                    b.id,
+                    b.gender, 
+                    b.mailing_address,
+                    b.year_of_birth, 
+                    b.level_of_education,
+                    b.country
+                    from auth_user a, auth_userprofile b 
+                    where a.email = ? 
+                    and a.id = b.user_id;';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		$result = QueryExecutor::execute($sqlQuery);
+                return $result;               
+    }
 }
 
 ?>

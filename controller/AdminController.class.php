@@ -1,5 +1,6 @@
 <?php
 
+//session_start();
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,11 +13,12 @@
  * @author Israel
  */
 class AdminController {
-    public function defaultAction (){
+
+    public function defaultAction() {
         $_SESSION[VISTA] = 'view/inscribeEnCurso.php';
         include "templates/admin.php";
     }
-    
+
     public function inscribirEnCurso() {
         $_SESSION[VISTA] = 'view/inscribeEnCurso.php';
         include "templates/admin.php";
@@ -101,6 +103,67 @@ class AdminController {
         } else {
             header('Location: http://mx.televisioneducativa.gob.mx/');
         }
+    }
+
+    public function actualizaUsuario() {
+        $email = filter_input(INPUT_GET, 'e');
+//        $email = 'pa_babe19@hotmail.com';
+        $query1 = DAOFactory::getAuthUserprofileDAO();
+        $result1 = $query1->queryUsuario($email);
+        // print_r($result1);
+        $_SESSION[VISTA] = 'view/actualizaUsuario.php';
+        include "templates/superAdmin.php";
+    }
+
+    public function revisaUsuario() {
+        $email = filter_input(INPUT_GET, 'e');
+//        print $email;
+        $query2 = DAOFactory::getAuthUserprofileDAO();
+        $result2 = $query2->queryUsuario($email);
+//        print_r($result2);
+        $correo = $result2[0][0];
+        $id = $result2[0][1];
+        $genero = $result2[0][2];
+        $direccion = $result2[0][3];
+        $anio = $result2[0][4];
+        $nivel = $result2[0][5];
+        $ciudad = $result2[0][6];
+        $valor = (trim($genero) == false) ||
+                (trim($direccion) == false) ||
+                (trim($anio) == false) ||
+                (trim($nivel) == false) ||
+                (trim($ciudad) == false);
+//       var_dump         (trim($genero) == false);
+//       var_dump        (trim($direccion) == false);
+//       var_dump        (trim($anio) == false);
+//       var_dump        (trim($nivel) == false);
+//       var_dump        (trim($ciudad) == false);
+        print $valor;
+    }
+
+    public function updateUsuario() {
+//        //update usuario
+        $email = filter_input(INPUT_POST, 'email');
+        $daoUsuario = DAOFactory::getAuthUserprofileDAO();
+        $users = DAOFactory::getAuthUserDAO()->queryByEmail($email);
+        $consultaUsuario = $daoUsuario->queryByUserId($users[0]->id);
+        if (filter_input(INPUT_POST, 'gender') != NULL) {
+            $consultaUsuario[0]->gender = filter_input(INPUT_POST, 'gender');
+        }
+        if (isset($_POST['mailing_address'])) {
+            $consultaUsuario[0]->mailingAddress = $_POST['mailing_address'];
+        }
+        if (filter_input(INPUT_POST, 'year_of_birth') != NULL) {
+            $consultaUsuario[0]->yearOfBirth = filter_input(INPUT_POST, 'year_of_birth');
+        }
+        if (filter_input(INPUT_POST, 'level_of_education') != NULL) {
+            $consultaUsuario[0]->levelOfEducation = filter_input(INPUT_POST, 'level_of_education');
+        }
+        if (filter_input(INPUT_POST, 'country') != NULL) {
+            $consultaUsuario[0]->country = filter_input(INPUT_POST, 'country');
+        }
+        $daoUsuario->update($consultaUsuario[0]);
+        echo '<script>parent.location.reload()</script>';
     }
 
 }
