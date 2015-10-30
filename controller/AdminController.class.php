@@ -116,6 +116,7 @@ class AdminController {
     }
 
     public function revisaUsuario() {
+        header('Access-Control-Allow-Origin: *');
         $email = filter_input(INPUT_GET, 'e');
 //        print $email;
         $query2 = DAOFactory::getAuthUserprofileDAO();
