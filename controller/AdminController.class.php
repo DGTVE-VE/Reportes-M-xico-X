@@ -117,6 +117,7 @@ class AdminController {
 
     public function revisaUsuario() {
         header('Access-Control-Allow-Origin: *');
+        header("Access-Control-Allow-Headers: Origin, X-CSRFToken, Content-Type, Accept");
         $email = filter_input(INPUT_GET, 'e');
 //        print $email;
         $query2 = DAOFactory::getAuthUserprofileDAO();
@@ -143,6 +144,8 @@ class AdminController {
     }
 
     public function updateUsuario() {
+        header('Access-Control-Allow-Origin: *');
+        header("Access-Control-Allow-Headers: Origin, X-CSRFToken, Content-Type, Accept");
 //        //update usuario
         $email = filter_input(INPUT_POST, 'email');
         $daoUsuario = DAOFactory::getAuthUserprofileDAO();
