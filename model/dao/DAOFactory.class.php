@@ -1229,5 +1229,11 @@ class DAOFactory{
 	public static function getCorreoActivacionDAO(){
 		return new CorreoActivacionMySqlExtDAO();
 	}
+	/**
+	 * @return ConstanciasDAO
+	 */
+	public static function getConstanciasDAO(){
+		return new ConstanciasMySqlExtDAO();
+	}        
 }
 ?>

@@ -170,4 +170,38 @@ class AdminController {
         echo '<script>parent.location.reload()</script>';
     }
 
+    public function constancias() {
+        $daoconstancias = DAOFactory::getConstanciasDAO();
+        $resultConstancias = $daoconstancias->queryPorCurso();
+        $_SESSION[VISTA] = 'view/constancias.php';
+        include "templates/admin.php";
+    }
+    
+    public function enviarCorreosConstancias() {
+        $curso = filter_input(INPUT_POST, 'curso');
+        $institucion = filter_input(INPUT_POST, 'institución');
+        $periodo = filter_input(INPUT_POST, 'periodo');
+        $daoPorCurso = DAOFactory::getConstanciasDAO();
+        $resultPorCurso = $daoPorCurso->queryByCursoPeriodo($curso, $periodo);
+        $v = 0;
+        $pass = 'dgtvemxconstancias';
+        $method = 'AES-128-CBC';
+        foreach ($resultPorCurso as $value) {
+            $path = "/descargaConstancias.php?a=".$resultPorCurso[$v]->institucion."/".$resultPorCurso[$v]->curso."/".$resultPorCurso[$v]->periodo."/".$resultPorCurso[$v]->folio.".pdf";
+            $encrypted = @openssl_encrypt($path, $method, $pass);
+            $v++;
+            $para = $resultPorCurso[$v]->correo;
+            $titulo = 'Constancia MéxicoX';
+            $mensaje = '<html><body>';
+            $mensaje .= '<h3>' . $encrypted . '</h3>';
+            $mensaje .= '</body></html>';
+            $cabeceras = 'From: mexicox@televisioneducativa.gob.mx' . "\r\n" .
+                    'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
+                    "MIME-Version: 1.0\r\n" .
+                    "Content-Type: text/html; charset=UTF-8\r\n" .
+                    'X-Mailer: PHP/' . phpversion();
+            mail($para, $titulo, $mensaje, $cabeceras);            
+        }
+    }
+
 }

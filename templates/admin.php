@@ -56,6 +56,10 @@ $resultCurso = $queryCurso->queryAll();
                     <li>
                         <a href="admin/enviarRecordatorio"><i class="fa fa-fw fa-user-plus"></i>Recordatorio de activación</a>
                     </li>
+                    <li>
+                        <a href="admin/constancias"><i class="fa fa-fw fa-user-plus"></i>Generación de Constancias</a>
+                    </li>
+                    
             </nav>
 
             <div id="page-wrapper">
