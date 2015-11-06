@@ -1,8 +1,9 @@
 <?php
-$ruta = $_POST ['a'];
+$ruta = $_POST ['constancia'];
 $pass = 'dgtvemxconstancias';
 $method = 'AES-128-CBC';
-$filename =  @openssl_decrypt($ruta, $method, $pass);
+$ruta1 =  @openssl_decrypt($ruta, $method, $pass);
+$filename = 'var/www/constancias/'.$ruta1;
 download($filename);
 function download($filename) {
         // required for IE, otherwise Content-disposition is ignored

@@ -187,20 +187,23 @@ class AdminController {
         $pass = 'dgtvemxconstancias';
         $method = 'AES-128-CBC';
         foreach ($resultPorCurso as $value) {
-            $path = "/descargaConstancias.php?a=".$resultPorCurso[$v]->institucion."/".$resultPorCurso[$v]->curso."/".$resultPorCurso[$v]->periodo."/".$resultPorCurso[$v]->folio.".pdf";
-            $encrypted = @openssl_encrypt($path, $method, $pass);
+            $curso = str_replace ('/','-',$resultPorCurso[$v]->curso);                     
+            $path1 = $resultPorCurso[$v]->institucion."/".$curso."/".$resultPorCurso[$v]->periodo."/".$resultPorCurso[$v]->folio.".pdf";
+            $encrypted = @openssl_encrypt($path1, $method, $pass);
+            $path = 'var/www/descargaConstancias.php?constancia='.$encrypted;
             $v++;
-            $para = $resultPorCurso[$v]->correo;
-            $titulo = 'Constancia MéxicoX';
-            $mensaje = '<html><body>';
-            $mensaje .= '<h3>' . $encrypted . '</h3>';
-            $mensaje .= '</body></html>';
-            $cabeceras = 'From: mexicox@televisioneducativa.gob.mx' . "\r\n" .
-                    'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
-                    "MIME-Version: 1.0\r\n" .
-                    "Content-Type: text/html; charset=UTF-8\r\n" .
-                    'X-Mailer: PHP/' . phpversion();
-            mail($para, $titulo, $mensaje, $cabeceras);            
+            print$path1.'____'.$curso;
+//            $para = $resultPorCurso[$v]->correo;
+//            $titulo = 'Constancia MéxicoX';
+//            $mensaje = '<html><body>';
+//            $mensaje .= '<h3>' . $path . '</h3>';
+//            $mensaje .= '</body></html>';
+//            $cabeceras = 'From: mexicox@televisioneducativa.gob.mx' . "\r\n" .
+//                    'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
+//                    "MIME-Version: 1.0\r\n" .
+//                    "Content-Type: text/html; charset=UTF-8\r\n" .
+//                    'X-Mailer: PHP/' . phpversion();
+//            mail($para, $titulo, $mensaje, $cabeceras);            
         }
     }
 
