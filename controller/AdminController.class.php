@@ -192,18 +192,17 @@ class AdminController {
             $encrypted = @openssl_encrypt($path1, $method, $pass);
             $path = 'var/www/descargaConstancias.php?constancia='.$encrypted;
             $v++;
-            print$path1.'____'.$curso;
-//            $para = $resultPorCurso[$v]->correo;
-//            $titulo = 'Constancia MéxicoX';
-//            $mensaje = '<html><body>';
-//            $mensaje .= '<h3>' . $path . '</h3>';
-//            $mensaje .= '</body></html>';
-//            $cabeceras = 'From: mexicox@televisioneducativa.gob.mx' . "\r\n" .
-//                    'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
-//                    "MIME-Version: 1.0\r\n" .
-//                    "Content-Type: text/html; charset=UTF-8\r\n" .
-//                    'X-Mailer: PHP/' . phpversion();
-//            mail($para, $titulo, $mensaje, $cabeceras);            
+            $para = $resultPorCurso[$v]->correo;
+            $titulo = 'Constancia MéxicoX';
+            $mensaje = '<html><body>';
+            $mensaje .= '<h3>' . $path . '</h3>';
+            $mensaje .= '</body></html>';
+            $cabeceras = 'From: mexicox@televisioneducativa.gob.mx' . "\r\n" .
+                    'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
+                    "MIME-Version: 1.0\r\n" .
+                    "Content-Type: text/html; charset=UTF-8\r\n" .
+                    'X-Mailer: PHP/' . phpversion();
+            mail($para, $titulo, $mensaje, $cabeceras);            
         }
     }
 
