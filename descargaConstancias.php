@@ -1,6 +1,6 @@
 <?php
 $ruta = $_GET['constancia'];
-print $ruta;
+print $ruta.'<br>';
 $pass = 'dgtvemxconstancias';
 $method = 'AES-128-CBC';
 $ruta1 = openssl_decrypt($ruta, $method, $pass);
