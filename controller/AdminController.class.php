@@ -179,7 +179,7 @@ class AdminController {
     
     public function enviarCorreosConstancias() {
         $curso = filter_input(INPUT_POST, 'curso');
-        $institucion = filter_input(INPUT_POST, 'institución');
+        $institucion = filter_input(INPUT_POST, 'institucion');
         $periodo = filter_input(INPUT_POST, 'periodo');
         $daoPorCurso = DAOFactory::getConstanciasDAO();
         $resultPorCurso = $daoPorCurso->queryByCursoPeriodo($curso, $periodo);
@@ -201,10 +201,11 @@ class AdminController {
                     'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
                     "MIME-Version: 1.0\r\n" .
                     "Content-Type: text/html; charset=UTF-8\r\n" .
-                    'X-Mailer: PHP/' . phpversion();
+                    'X-Mailer: PHP/' . phpversion();            
             mail($para, $titulo, $mensaje, $cabeceras);          
-            $_SESSION[VISTA] = 'view/constancias.php';
-            include "templates/admin.php";
+            print $para.'<br>'.$titulo.'<br>'.$mensaje.'<br>'.$cabeceras.'<br>'.$path1;
+//            $_SESSION[VISTA] = 'view/constancias.php';
+//            include "templates/admin.php";
         }
     }
 

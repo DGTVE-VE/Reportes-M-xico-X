@@ -1,5 +1,5 @@
 <?php
-$ruta = $_POST ['constancia'];
+$ruta = $_POST['constancia'];
 $pass = 'dgtvemxconstancias';
 $method = 'AES-128-CBC';
 $ruta1 =  @openssl_decrypt($ruta, $method, $pass);
