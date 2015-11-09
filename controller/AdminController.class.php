@@ -195,7 +195,7 @@ class AdminController {
             $para = $resultPorCurso[$v]->correo;
             $titulo = 'Constancia MéxicoX';
             $mensaje = '<html><body>';
-            $mensaje .= '<a href="'. $path .'"></a>';
+            $mensaje .= '<a href="'. $path .'">'. $path .'</a>';
             $mensaje .= '</body></html>';
             $cabeceras = 'From: mexicox@televisioneducativa.gob.mx' . "\r\n" .
                     'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
