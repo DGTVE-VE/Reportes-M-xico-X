@@ -190,7 +190,7 @@ class AdminController {
             $curso = str_replace ('/','-',$resultPorCurso[$v]->curso);                     
             $path1 = $resultPorCurso[$v]->institucion."/".$curso."/".$resultPorCurso[$v]->periodo."/".$resultPorCurso[$v]->folio.".pdf";
             $encrypted = @openssl_encrypt($path1, $method, $pass);
-            $path = 'var/www/descargaConstancias.php?constancia='.$encrypted;
+            $path = 'http://mx.televisioneducativa.gob.mx:81/descargaConstancias.php?constancia='.$encrypted;
             $v++;
             $para = $resultPorCurso[$v]->correo;
             $titulo = 'Constancia MéxicoX';
