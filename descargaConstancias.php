@@ -1,13 +1,10 @@
 <?php
 $ruta = $_GET['constancia'];
-print $ruta.'<br>';
 $pass = 'dgtvemxconstancias';
 $method = 'AES-128-CBC';
 $ruta1 = openssl_decrypt($ruta, $method, $pass);
 $filename = '/var/www/constancias/'.$ruta1;
-print 'ruta='.$ruta1.'</br>';
-print $filename.'</br>';
-//download($filename);
+download($filename);
 function download($filename) {
         // required for IE, otherwise Content-disposition is ignored
         if (ini_get('zlib.output_compression'))

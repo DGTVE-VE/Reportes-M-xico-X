@@ -187,8 +187,8 @@ class AdminController {
         $pass = 'dgtvemxconstancias';
         $method = 'AES-128-CBC';
         foreach ($resultPorCurso as $value) {
-            $curso = str_replace ('/','-',$resultPorCurso[$v]->curso);                     
-            $path1 = $resultPorCurso[$v]->institucion."/".$curso."/".$resultPorCurso[$v]->periodo."/".$resultPorCurso[$v]->folio.".pdf";
+            $curso = str_replace ('/','-',$value->curso);                     
+            $path1 = $value->institucion."/".$curso."/".$value->periodo."/".$value->folio.".pdf";
             $encrypted = urlencode ( openssl_encrypt($path1, $method, $pass));
             $path = 'http://mx.televisioneducativa.gob.mx:81/descargaConstancias.php?constancia='.$encrypted;
             $v++;
