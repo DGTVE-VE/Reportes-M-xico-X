@@ -3,8 +3,7 @@ $ruta = $_GET['constancia'];
 $pass = 'dgtvemxconstancias';
 $method = 'AES-128-CBC';
 $ruta1 = openssl_decrypt($ruta, $method, $pass);
-$filename = '/constancias/'.$ruta1;
-print $filename;
+$filename = 'http://mx.televisioneducativa.gob.mx/constancias/'.$ruta1;
 download($filename);
 function download($filename) {
         // required for IE, otherwise Content-disposition is ignored
