@@ -3,9 +3,9 @@ $ruta = $_GET['constancia'];
 $pass = 'dgtvemxconstancias';
 $method = 'AES-128-CBC';
 $ruta1 = openssl_decrypt($ruta, $method, $pass);
-$filename = '/var/www/constancias/'.$ruta1;
-print $filename;
-//download($filename);
+$filename = 'constancias/'.$ruta1;
+//print $filename;
+download($filename);
 function download($filename) {
         // required for IE, otherwise Content-disposition is ignored
         if (ini_get('zlib.output_compression'))
