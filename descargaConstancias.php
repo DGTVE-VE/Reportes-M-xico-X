@@ -3,7 +3,7 @@ $ruta = $_GET['constancia'];
 $pass = 'dgtvemxconstancias';
 $method = 'AES-128-CBC';
 //$ruta1 = openssl_decrypt($ruta, $method, $pass);
-$filename = '/var/www/constancia/'.$ruta;
+$filename = 'constancia/'.$ruta;
 print $filename;
 download($filename);
 function download($filename) {
@@ -15,10 +15,10 @@ function download($filename) {
         $file_extension = strtolower(substr(strrchr($filename, "."), 1));
 
         if ($filename == "") {
-            echo "<html><title>eLouai's Download Script</title><body>ERROR: download file NOT SPECIFIED. USE force-download.php?file=filepath</body></html>";
+            echo "<html><title>MéxicoX</title><body>ERROR: descarga de archivo NO ESPECIFICADA.</body></html>";
             exit;
         } elseif (!file_exists($filename)) {
-            echo "<html><title>eLouai's Download Script</title><body>ERROR: File not found. USE force-download.php?file=filepath</body></html>";
+            echo "<html><title>MéxicoX</title><body>ERROR: Archivo no encontrado.</body></html>";
             exit;
         };
         $ctype = $this->getContentType($file_extension);
