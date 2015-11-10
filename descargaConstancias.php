@@ -3,7 +3,7 @@ $ruta = $_GET['constancia'];
 $pass = 'dgtvemxconstancias';
 $method = 'AES-128-CBC';
 //$ruta1 = openssl_decrypt($ruta, $method, $pass);
-$filename = '/var/www/constancias/'.$ruta;
+$filename = '/var/www/constancia/'.$ruta;
 print $filename;
 download($filename);
 function download($filename) {
