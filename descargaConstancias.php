@@ -4,8 +4,8 @@ $pass = 'dgtvemxconstancias';
 $method = 'AES-128-CBC';
 $ruta1 = openssl_decrypt($ruta, $method, $pass);
 $filename = 'constancias/'.$ruta1;
-//print $filename;
-download($filename);
+print $filename;
+//download($filename);
 function download($filename) {
         // required for IE, otherwise Content-disposition is ignored
         if (ini_get('zlib.output_compression'))

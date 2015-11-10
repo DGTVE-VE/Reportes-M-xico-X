@@ -205,8 +205,8 @@ class AdminController {
             mail($para, $titulo, $mensaje, $cabeceras);     
             print '<br> Encrypted:'.$encrypted.'<br>';
             print $para.'<br>'.$titulo.'<br>'.$mensaje.'<br>'.$cabeceras.'<br>'.$path1;
-            $_SESSION[VISTA] = 'view/constancias.php';
-            include "templates/admin.php";
+//            $_SESSION[VISTA] = 'view/constancias.php';
+//            include "templates/admin.php";
         }
     }
 
