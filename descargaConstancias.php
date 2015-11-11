@@ -20,7 +20,7 @@ function download($filename) {
             echo "<html><title>MéxicoX</title><body>ERROR: Archivo no encontrado.</body></html>";
             exit;
         };
-        $ctype = $this->getContentType($file_extension);
+        $ctype = getContentType($file_extension);
         header("Pragma: public"); // required
         header("Expires: 0");
         header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
