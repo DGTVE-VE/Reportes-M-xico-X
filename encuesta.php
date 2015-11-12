@@ -19,6 +19,7 @@
             .colortit{color: blue;}
             .header{background-image: url('header_mexicox.png')}
             tr{height: 50px;}
+            .tdp6{width: 15%; text-align: center;}
         </style>
     </head>
 
@@ -28,18 +29,18 @@
                 <img class="col-md-offset-2" src="LOGO_mexicoX.png">
             </div><!-- /.container-fluid -->
         </nav>
-        <div class="container-fluid col-md-9 col-md-offset-2">
+        <div class="container-fluid">
             <form action="" method="post">
-                <div class="panel panel-default ">
+                <div class="panel panel-default col-md-9 col-md-offset-2 col-lg-9 col-xs-12 ">
                     <div class="panel-heading">
                         <h3 class="text-center">Encuesta de satisfacción para usuarios de MéxicoX</h3>
                         <h3 class="panel-title colortit">Por favor, dedique unos minutos para completar esta encuesta.
                             La información que nos proporcione será utilizada para mejorar nuestro servicio.
-                            <br>Al terminar de responder la encuesta presione el botón Guardar e iniciará la <strong>descarga de su constancia.</strong>
+                            Al terminar de responder la encuesta presione el botón Guardar e iniciará la <strong>descarga de su constancia.</strong>
                         </h3>
                     </div>
-                    <div class="panel-body">
-                        <table class="table-striped">
+                    <div class="panel-body table-responsive">
+                        <table class="table-striped col-lg-8 col-md-8 col-xs-12">
                             <tr><td><strong>1.- ¿Cómo se enteró de los cursos de MéxicoX?</strong></td></tr>
                             <tr>
                                 <td>
@@ -51,7 +52,6 @@
                                     <label class="radio-inline"><input type="radio" name="p1" value="Por familiares">Por familiares</label>
                                     <label class="radio-inline"><input type="radio" name="p1" value="Publicidad">Publicidad</label>
                                     <label class="radio-inline"><input type="radio" name="p1" value="otro">Otro</label>
-                                    <label class="radio-inline">Específique:</label><input id="r1texto" type="text" name="p1" size="25">
                                 </td>
                             </tr>
                             <tr><td><strong>2.- ¿Por qué razón decidió tomar un curso en MéxicoX?</strong></td></tr>
@@ -62,7 +62,9 @@
                             <tr><td><label class="radio-inline"><input type="radio" name="p2" value="Por recomendación">Por recomendación</label></td></tr>
                             <tr><td><label class="radio-inline"><input type="radio" name="p2" value="Por interés en el tema">Por interés en el tema</label></td></tr>
                             <tr><td><label class="radio-inline"><input type="radio" name="p2" value="Por ser un servicio gratuito">Por ser un servicio gratuito</label></td></tr>
-                            <tr><td><label class="radio-inline"><input type="radio" name="p2" value="Otro">Otro</label></td></tr>                        
+                            <tr><td><label class="radio-inline"><input type="radio" name="p2" value="Otro">Otro&nbsp;&nbsp;&nbsp;</label>
+                                <input id="r2texto" type="text" name="p2" size="25">
+                                </td></tr>                                                    
                             <tr><td><strong>3.- ¿Cómo considera su experiencia en la plataforma MéxicoX?</strong></td></tr>
                             <tr>
                                 <td>
@@ -73,7 +75,7 @@
                                     <label class="radio-inline"><input type="radio" name="p3" value="Muy mala">Muy mala</label>
                                 </td>
                             </tr>  
-                            <tr><td><strong>4.-Con base en su experiencia al tomar el curso en MéxicoX, ¿Qué tan satisfecho se siente con el servicio que se le proporcionó?</strong></td></tr>
+                            <tr><td><strong>4.-Con base en su experiencia al tomar el curso en MéxicoX, ¿qué tan satisfecho se siente con el servicio que se le proporcionó?</strong></td></tr>
                             <tr>
                                 <td>
                                     <label class="radio-inline"><input type="radio" name="p4" value="Muy satisfecho">Muy satisfecho</label>
@@ -94,10 +96,10 @@
                                     <label class="radio-inline"><input type="radio" name="p5" value="10">10</label>                                
                                 </td>
                             </tr>     
-                            <tr><td><strong>6.- A continuación se mencionan algunos aspectos sobre el funcionamiento de MéxicoX. Para cada uno de ellos, ¿qué opinión tiene:?</strong></td></tr>
+                            <tr><td><strong>6.- A continuación se mencionan algunos aspectos sobre el funcionamiento de MéxicoX. Para cada uno de ellos, ¿qué opinión tiene?</strong></td></tr>
                             <tr>
                                 <td>
-                                    <table class="table-bordered col-md-offset-2 col-md-7">
+                                    <table class="table-bordered col-md-offset-1 col-md-9 col-lg-9 col-xs-12 col-sm-12 p6estilo">
                                         <tr class="text-center">
                                             <td></td>
                                             <td>Muy bueno</td>
@@ -107,10 +109,10 @@
                                         </tr>
                                         <tr>
                                             <td>Información actualizada, sencilla, creíble y concisa</td>
-                                            <td class="text-center"><input type="radio" name="p6op1" value="Muy bueno"></td>
-                                            <td class="text-center"><input type="radio" name="p6op1" value="Bueno"></td>
-                                            <td class="text-center"><input type="radio" name="p6op1" value="Malo"></td>
-                                            <td class="text-center"><input type="radio" name="p6op1" value="Muy malo"></td>                                
+                                            <td class="text-center tdp6"><input type="radio" name="p6op1" value="Muy bueno"></td>
+                                            <td class="text-center tdp6"><input type="radio" name="p6op1" value="Bueno"></td>
+                                            <td class="text-center tdp6"><input type="radio" name="p6op1" value="Malo"></td>
+                                            <td class="text-center tdp6"><input type="radio" name="p6op1" value="Muy malo"></td>                                
                                         </tr>
                                         <tr>
                                             <td>Apariencia de la plataforma</td>
@@ -159,13 +161,13 @@
                                     <label class="radio-inline"><input type="radio" name="p9" value="Ciencia y Tecnología">Ciencia y Tecnología</label>
                                     <label class="radio-inline"><input type="radio" name="p9" value="Biología">Biología </label>
                                     <label class="radio-inline"><input type="radio" name="p9" value="Humanidades">Humanidades </label>
-                                    <label class="radio-inline"><input type="radio" name="p9" value="Otro">Otro</label>
-                                    <label class="radio-inline">Específique:</label><input type="text" size="25" name="p9" id="r9text">                                
+                                    <label class="radio-inline"><input type="radio" name="p9" value="Otro">Otro&nbsp;&nbsp;&nbsp;</label>
+                                    <input type="text" size="25" name="p9" id="r9text">                                
                                 </td>
                             </tr>                          
                             <tr>
                                 <td>
-                                    <strong>10.- Para finalizar, ¿hay algún comentario sobre su experiencia en MéxicoX que no se haya preguntado en esta encuesta? Si es así, podría mencionarlo.</strong>
+                                    <strong>10.- Para finalizar, ¿hay algún comentario sobre su experiencia en MéxicoX que no se haya preguntado en esta encuesta? Si es así, por favor, díganos de que se trata:</strong>
                                 </td>
                             <tr>
                                 <td><textarea name="p10" cols="150"></textarea></td>
@@ -183,15 +185,6 @@
     </body>
 </html>
 <script type="text/javascript">
-function checkDisabledP1(evt) {
-    var valp1 = $("input[name=p1]:checked").val();
-    if (valp1 === 'otro') {
-          $('#r1texto').removeAttr('disabled');
-        
-    } else {
-      $('#r1texto').attr('disabled', true);
-    }
-}
 function checkDisabledP9(evt1) {
     var valp9 = $("input[name=p9]:checked").val();
     if (valp9 === 'Otro') {
@@ -201,8 +194,20 @@ function checkDisabledP9(evt1) {
       $('#r9text').attr('disabled', true);
     }
 }
-$('input[name=p1]:radio').change(checkDisabledP1);
+function checkDisabledP2(evt2) {
+    var valp2 = $("input[name=p2]:checked").val();
+    if (valp2 === 'Otro') {
+          $('#r2texto').removeAttr('disabled');
+        
+    } else {
+      $('#r2texto').attr('disabled', true);
+    }
+}
+
 $('input[name=p9]:radio').change(checkDisabledP9);
-checkDisabledP1();
+$('input[name=p2]:radio').change(checkDisabledP2);
+
+checkDisabledP2();
 checkDisabledP9();
+
 </script>
