@@ -189,13 +189,12 @@ class AdminController {
         foreach ($resultPorCurso as $value) {
             $curso = str_replace ('/','-',$value->curso);                     
             $path1 = $value->institucion."/".$curso."/".$value->periodo."/".$value->folio.".pdf";
-//            $encrypted = urlencode ( openssl_encrypt($path1, $method, $pass));
-//            $path = 'http://mx.televisioneducativa.gob.mx:81/descargaConstancias.php?constancia='.$encrypted;
-                        $path = 'http://mx.televisioneducativa.gob.mx:81/descargaConstancias.php?constancia='.urlencode($path1);
-            $v++;
-            $para = $resultPorCurso[$v]->correo;
+            $encrypted = urlencode ( openssl_encrypt($path1, $method, $pass));
+            $path = 'http://mx.televisioneducativa.gob.mx:81/descargaConstancias.php?constancia='.$encrypted;
+            $para = $value->correo;
             $titulo = 'Constancia MéxicoX';
             $mensaje = '<html><body>';
+            $mensaje .= '<h3>Da click en el siguiente enlace para descargar la constancia: </h3><br>';
             $mensaje .= '<a href="'. $path .'">'. $path .'</a>';
             $mensaje .= '</body></html>';
             $cabeceras = 'From: mexicox@televisioneducativa.gob.mx' . "\r\n" .
@@ -203,12 +202,8 @@ class AdminController {
                     "MIME-Version: 1.0\r\n" .
                     "Content-Type: text/html; charset=UTF-8\r\n" .
                     'X-Mailer: PHP/' . phpversion();            
-            mail($para, $titulo, $mensaje, $cabeceras);     
-            print '<br> Encrypted:'.$encrypted.'<br>';
-            print $para.'<br>'.$titulo.'<br>'.$mensaje.'<br>'.$cabeceras.'<br>'.$path1;
-//            $_SESSION[VISTA] = 'view/constancias.php';
-//            include "templates/admin.php";
+            mail($para, $titulo, $mensaje, $cabeceras);
+            echo '<script>parent.location.reload()</script>';
         }
     }
-
 }
