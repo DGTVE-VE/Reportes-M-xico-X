@@ -25,13 +25,13 @@
 
     <body>
         <nav class="navbar navbar-default header">
-            <div class="container-fluid">
+            <div class="container">
                 <img class="col-md-offset-2" src="LOGO_mexicoX.png">
             </div><!-- /.container-fluid -->
         </nav>
-        <div class="container-fluid">
-            <form action="" method="post">
-                <div class="panel panel-default col-md-9 col-md-offset-2 col-lg-9 col-xs-12 ">
+        <div class="container">
+            <form action="" method="post" class="row">
+                <div class="panel panel-default col-md-12 col-lg-12 col-xs-12 ">
                     <div class="panel-heading">
                         <h3 class="text-center">Encuesta de satisfacción para usuarios de MéxicoX</h3>
                         <h3 class="panel-title colortit">Por favor, dedique unos minutos para completar esta encuesta.
@@ -40,7 +40,7 @@
                         </h3>
                     </div>
                     <div class="panel-body table-responsive">
-                        <table class="table-striped col-lg-8 col-md-8 col-xs-12">
+                        <table class="table-striped col-lg-11 col-md-11 col-xs-12">
                             <tr><td><strong>1.- ¿Cómo se enteró de los cursos de MéxicoX?</strong></td></tr>
                             <tr>
                                 <td>
