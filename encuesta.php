@@ -146,7 +146,7 @@
                                     <label class="radio-inline"><input type="radio" name="p7" value="Nada probable">Nada probable</label>
                                 </td>
                             </tr>  
-                            <tr><td><strong>8.- ¿Usted recomendaría a otras personas los cursos en MéxicoX?</strong></td></tr>                        
+                            <tr><td><strong>8.- ¿Usted recomendaría a otras personas los cursos de MéxicoX?</strong></td></tr>                        
                             <tr>
                                 <td>
                                     <label class="radio-inline"><input type="radio" name="p8" value="Sí">Sí los recomendaría</label>
@@ -167,7 +167,7 @@
                             </tr>                          
                             <tr>
                                 <td>
-                                    <strong>10.- Para finalizar, ¿hay algún comentario sobre su experiencia en MéxicoX que no se haya preguntado en esta encuesta? Si es así, por favor, díganos de que se trata:</strong>
+                                    <strong>10.- Para finalizar, ¿hay algún comentario sobre su experiencia en MéxicoX que no se haya preguntado en esta encuesta? Si es así, por favor, díganos de qué se trata:</strong>
                                 </td>
                             <tr>
                                 <td><textarea name="p10" cols="150"></textarea></td>
