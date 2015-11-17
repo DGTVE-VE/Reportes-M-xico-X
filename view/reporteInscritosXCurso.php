@@ -13,8 +13,12 @@
     <div class="col-md-6 col-md-offset-3">
         <table class="table table-striped inscritos">
             <thead>
+            <th>Curso finalizado</th>
+            <th>Inscripción</th>
             <th>Nombre del Curso</th>
             <th>Usuarios Inscritos</th>
+            
+            
 <!--            <th>Usuarios Registrados</th>
             <th>Staff</th>-->
             </thead>
@@ -32,6 +36,12 @@
 //                    $staff = $row['Staff'];
 
                     print '<tr>';
+                    print '<td>';
+                    print $row['fecha_termino'];
+                    print '</td>';
+                    print '<td>';
+                    print $row['estado_inscripcion'];
+                    print '</td>';
                     print '<td>';
                     print $nombre;
                     print '</td>';
