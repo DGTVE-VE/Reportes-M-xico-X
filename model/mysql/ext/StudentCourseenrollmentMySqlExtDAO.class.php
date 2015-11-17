@@ -21,7 +21,7 @@ class StudentCourseenrollmentMySqlExtDAO extends StudentCourseenrollmentMySqlDAO
                 s.is_active = 1 
                 GROUP BY s.course_id
                 UNION
-                SELECT 'TOTALES:', 
+                SELECT TOTALES:', '', '', 
                 SUM(Usuarios_registrados) 'Total Registrados',
                 SUM(Usuarios_Activos) 'Total activos', 
                 SUM(Staff) 'Total Staff' 
