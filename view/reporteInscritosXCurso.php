@@ -35,7 +35,7 @@
 //                    $activos = $row['Usuarios_activos'];
 //                    $staff = $row['Staff'];
                     $time = strtotime($row['fecha_termino']);
-                    $myFormatForView = date("m/d/y", $time);
+                    $myFormatForView = date("d/m/y", $time);
                     print '<tr>';
                     print '<td>';
                     print $myFormatForView;
