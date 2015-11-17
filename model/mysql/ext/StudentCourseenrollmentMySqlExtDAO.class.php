@@ -10,7 +10,7 @@ class StudentCourseenrollmentMySqlExtDAO extends StudentCourseenrollmentMySqlDAO
 
     public function querySumStudent() {
 
-        $sql = "SELECT  c.course_name, c.fecha_termino, c.estado_inscripcion
+        $sql = "SELECT  c.course_name, c.fecha_termino, c.estado_inscripcion,
                 COUNT(*) 'Usuarios_registrados', 
                 SUM(u.is_active) 'Usuarios_activos', 
                 SUM(is_staff) 'Staff' 
