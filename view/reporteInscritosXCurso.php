@@ -10,7 +10,7 @@
     </div>
 </div>
 <div class="row">                           
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-8 col-md-offset-2">
         <table class="table table-striped inscritos">
             <thead>
             <th>Curso finalizado</th>
@@ -34,10 +34,11 @@
                     $registrados = $row['Usuarios_registrados'];
 //                    $activos = $row['Usuarios_activos'];
 //                    $staff = $row['Staff'];
-
+                    $time = strtotime($row['fecha_termino']);
+                    $myFormatForView = date("m/d/y", $time);
                     print '<tr>';
                     print '<td>';
-                    print $row['fecha_termino'];
+                    print $myFormatForView;
                     print '</td>';
                     print '<td>';
                     print $row['estado_inscripcion'];
