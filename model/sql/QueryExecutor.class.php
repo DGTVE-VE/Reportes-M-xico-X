@@ -27,7 +27,8 @@ class QueryExecutor {
         self::$connection->executeQuery("SET NAMES 'utf8'");
         $result = self::$connection->executeQuery($query);
         if (!$result) {
-            throw new Exception("SQL Error: -->" . $query . "<--" . mysql_error());
+//            throw new Exception("SQL Error: -->" . $query . "<--" . mysql_error());
+            throw new Exception(mysql_error());
         }
         return $result;
     }
