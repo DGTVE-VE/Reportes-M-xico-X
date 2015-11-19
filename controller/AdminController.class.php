@@ -197,7 +197,7 @@ class AdminController {
             $mensaje .= '<h3>Da click en el siguiente enlace para descargar la constancia: </h3><br>';
             $mensaje .= '<a href="'. $path .'">'. $path .'</a>';
             $mensaje .= '</body></html>';
-            $cabeceras = 'From: mexicox@televisioneducativa.gob.mx' . "\r\n" .
+            $cabeceras = 
                     'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
                     "MIME-Version: 1.0\r\n" .
                     "Content-Type: text/html; charset=UTF-8\r\n" .
