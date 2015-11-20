@@ -13,6 +13,7 @@ class ConnectionFactory{
 	 * @return polaczenie
 	 */
 	static public function getConnection(){
+            var_dump ($_SESSION);
                 $host = $_SESSION['config']['database']['host'];
                 $user = $_SESSION['config']['database']['user'];
                 $pass = $_SESSION['config']['database']['pass'];
