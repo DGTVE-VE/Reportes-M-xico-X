@@ -64,7 +64,7 @@
                             <tr><td><label class="radio-inline"><input required type="radio" name="p2" value="Por interés en el tema">Por interés en el tema</label></td></tr>
                             <tr><td><label class="radio-inline"><input required type="radio" name="p2" value="Por ser un servicio gratuito">Por ser un servicio gratuito</label></td></tr>
                             <tr><td><label class="radio-inline"><input required type="radio" name="p2" value="Otro">Otro&nbsp;&nbsp;&nbsp;</label>
-                                <input required id="r2texto" type="text" name="p2otro" size="25">
+                                <input  id="r2texto" type="text" name="p2otro" size="25">
                                 </td></tr>                                                    
                             <tr><td><strong>3.- ¿Cómo considera su experiencia en la plataforma MéxicoX?</strong></td></tr>
                             <tr>
@@ -163,7 +163,7 @@
                                     <label class="radio-inline"><input required type="radio" name="p9" value="Biología">Biología </label>
                                     <label class="radio-inline"><input required type="radio" name="p9" value="Humanidades">Humanidades </label>
                                     <label class="radio-inline"><input required type="radio" name="p9" value="Otro">Otro&nbsp;&nbsp;&nbsp;</label>
-                                    <input required type="text" size="25" name="p9otro" id="r9text">                                
+                                    <input  type="text" size="25" name="p9otro" id="r9text">                                
                                 </td>
                             </tr>                          
                             <tr>
