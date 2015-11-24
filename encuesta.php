@@ -30,7 +30,8 @@
             </div><!-- /.container-fluid -->
         </nav>
         <div class="container">
-            <form action="" method="post" class="row">
+            <form action="descargaConstancias.php" method="post" class="row">
+                <input hidden="constancia" value="<?php print $_GET['constancia'];?>">
                 <div class="panel panel-default col-md-12 col-lg-12 col-xs-12 ">
                     <div class="panel-heading">
                         <h3 class="text-center">Encuesta de satisfacción para usuarios de MéxicoX</h3>
@@ -174,7 +175,7 @@
                             </tr>                 
 
                             <tr class="text-center">
-                                <td><input type="button" class="btn-success btn-lg" value="Envíar Encuesta" /></td>
+                                <td><input type="submit" class="btn-success btn-lg" value="Envíar Encuesta" /></td>
                             </tr>
                         </table>
                     </div>
