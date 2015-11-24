@@ -42,7 +42,7 @@ $sql = "INSERT INTO `mexicox`.`encuesta`
 `pregunta10`,
 `constancia`)
 VALUES
-($p1, $p2, $p3, $p4, $p5, $p6op1, $p6op2, $p6op3, $p6op4, $p7, $p8, $p9, $p10, $ruta);";
+('$p1', '$p2', '$p3', '$p4', '$p5', '$p6op1', '$p6op2', '$p6op3', '$p6op4', '$p7', '$p8', '$p9', '$p10', '$ruta');";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
