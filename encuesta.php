@@ -31,7 +31,7 @@
         </nav>
         <div class="container">
             <form action="descargaConstancias.php" method="post" class="row">
-                <input hidden="constancia" value="<?php print $_GET['constancia'];?>">
+                <input type="hidden" name="constancia" value="<?php print $_GET['constancia'];?>">
                 <div class="panel panel-default col-md-12 col-lg-12 col-xs-12 ">
                     <div class="panel-heading">
                         <h3 class="text-center">Encuesta de satisfacción para usuarios de MéxicoX</h3>
