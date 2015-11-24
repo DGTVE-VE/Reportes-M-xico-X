@@ -9,12 +9,12 @@
         <meta name="author" content="">
 
         <title>México X</title>
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Bootstrap Core CSS -->
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" type="text/javascript"></script>        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        
         <style>
             .colortit{color: blue;}
             .header{background-image: url('header_mexicox.png')}
@@ -64,7 +64,7 @@
                             <tr><td><label class="radio-inline"><input required type="radio" name="p2" value="Por interés en el tema">Por interés en el tema</label></td></tr>
                             <tr><td><label class="radio-inline"><input required type="radio" name="p2" value="Por ser un servicio gratuito">Por ser un servicio gratuito</label></td></tr>
                             <tr><td><label class="radio-inline"><input required type="radio" name="p2" value="Otro">Otro&nbsp;&nbsp;&nbsp;</label>
-                                <input required id="r2texto" type="text" name="p2" size="25">
+                                <input required id="r2texto" type="text" name="p2otro" size="25">
                                 </td></tr>                                                    
                             <tr><td><strong>3.- ¿Cómo considera su experiencia en la plataforma MéxicoX?</strong></td></tr>
                             <tr>
@@ -163,7 +163,7 @@
                                     <label class="radio-inline"><input required type="radio" name="p9" value="Biología">Biología </label>
                                     <label class="radio-inline"><input required type="radio" name="p9" value="Humanidades">Humanidades </label>
                                     <label class="radio-inline"><input required type="radio" name="p9" value="Otro">Otro&nbsp;&nbsp;&nbsp;</label>
-                                    <input required type="text" size="25" name="p9" id="r9text">                                
+                                    <input required type="text" size="25" name="p9otro" id="r9text">                                
                                 </td>
                             </tr>                          
                             <tr>
@@ -186,29 +186,29 @@
     </body>
 </html>
 <script type="text/javascript">
-function checkDisabledP9(evt1) {
-    var valp9 = $("input required[name=p9]:checked").val();
-    if (valp9 === 'Otro') {
-          $('#r9text').removeAttr('disabled');
-        
-    } else {
-      $('#r9text').attr('disabled', true);
-    }
-}
-function checkDisabledP2(evt2) {
-    var valp2 = $("input required[name=p2]:checked").val();
-    if (valp2 === 'Otro') {
-          $('#r2texto').removeAttr('disabled');
-        
-    } else {
-      $('#r2texto').attr('disabled', true);
-    }
-}
-
-$('input required[name=p9]:radio').change(checkDisabledP9);
-$('input required[name=p2]:radio').change(checkDisabledP2);
-
-checkDisabledP2();
-checkDisabledP9();
+//function checkDisabledP9(evt1) {
+//    var valp9 = $("input [name=p9]:checked").val();
+//    if (valp9 === 'Otro') {
+//          $('#r9text').removeAttr('disabled');
+//        
+//    } else {
+//      $('#r9text').attr('disabled', true);
+//    }
+//}
+//function checkDisabledP2(evt2) {
+//    var valp2 = $("input [name=p2]:checked").val();
+//    if (valp2 === 'Otro') {
+//          $('#r2texto').removeAttr('disabled');
+//        
+//    } else {
+//      $('#r2texto').attr('disabled', true);
+//    }
+//}
+//
+//$('input [name=p9]:radio').change(checkDisabledP9);
+//$('input [name=p2]:radio').change(checkDisabledP2);
+//
+//checkDisabledP2();
+//checkDisabledP9();
 
 </script>

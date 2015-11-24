@@ -14,6 +14,16 @@ $p9 = $_POST["p9"];
 $p10 = $_POST["p10"];
 $ruta = $_POST['constancia'];
 
+if (isset ($_POST['p2otro'])){
+    if (!empty($_POST['p2otro']))
+        $p2 = $_POST['p2otro'];
+}
+
+if (isset ($_POST['p9otro'])){
+    if (!empty($_POST['p9otro']))
+        $p9 = $_POST['p9otro'];
+}
+
 $servername = "localhost";
 $username = "root";
 $password = "417624edx";
@@ -79,13 +89,13 @@ function download($filename) {
     // addition by Jorg Weske
     $file_extension = strtolower(substr(strrchr($filename, "."), 1));
 
-    if ($filename == "") {
-//            echo "<html><title>MéxicoX</title><body>ERROR: descarga de archivo NO ESPECIFICADA.</body></html>";
-        exit;
-    } elseif (!file_exists($filename)) {
-//            echo "<html><title>MéxicoX</title><body>ERROR: Archivo no encontrado.</body></html>";
-        exit;
-    };
+//    if ($filename == "") {
+////            echo "<html><title>MéxicoX</title><body>ERROR: descarga de archivo NO ESPECIFICADA.</body></html>";
+//        exit;
+//    } elseif (!file_exists($filename)) {
+////            echo "<html><title>MéxicoX</title><body>ERROR: Archivo no encontrado.</body></html>";
+//        exit;
+//    }
     $ctype = getContentType($file_extension);
     header("Pragma: public"); // required
     header("Expires: 0");
