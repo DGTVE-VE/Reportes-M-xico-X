@@ -26,7 +26,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);    
 } 
 
-$sql = "INSERT INTO `mexicox`.`encuesta`
+$sql = "INSERT INTO encuesta
 (`pregunta1`,
 `pregunta2`,
 `pregunta3`,
