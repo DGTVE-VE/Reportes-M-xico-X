@@ -171,11 +171,11 @@
                                     <strong>10.- Para finalizar, ¿hay algún comentario sobre su experiencia en MéxicoX que no se haya preguntado en esta encuesta? Si es así, por favor, díganos de qué se trata:</strong>
                                 </td>
                             <tr>
-                                <td><textarea required name="p10" cols="150"></textarea></td>
+                                <td><textarea  name="p10" cols="150"></textarea></td>
                             </tr>                 
 
                             <tr class="text-center">
-                                <td><input required type="submit" class="btn-success btn-lg" value="Envíar Encuesta" /></td>
+                                <td><input  type="submit" class="btn-success btn-lg" value="Descargar Constancia" /></td>
                             </tr>
                         </table>
                     </div>
