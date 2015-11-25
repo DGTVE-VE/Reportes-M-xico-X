@@ -8,7 +8,7 @@
 class ConstanciasMySqlExtDAO extends ConstanciasMySqlDAO {
 
     public function queryPorCurso() {
-        $sql = "SELECT DISTINCT(institucion),periodo, curso FROM constancias";
+        $sql = "SELECT DISTINCT institucion,periodo, curso FROM constancias";
         $sqlQuery = new SqlQuery($sql);
         $result = QueryExecutor::execute($sqlQuery);
         return $result;

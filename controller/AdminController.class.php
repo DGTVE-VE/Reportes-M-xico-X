@@ -205,8 +205,10 @@ class AdminController {
             mail($para, $titulo, $mensaje, $cabeceras);
             $daoconstancias = DAOFactory::getConstanciasDAO();
             $resultConstancias = $daoconstancias->queryPorCurso();
-            $_SESSION[VISTA] = 'view/constancias.php';
-            include "templates/admin.php";            
+            print $path;
+            var_dump ($resultConstancias);
+//            $_SESSION[VISTA] = 'view/constancias.php';
+//            include "templates/admin.php";            
         }
     }
 }
