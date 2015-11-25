@@ -13,7 +13,7 @@ $p7 = $_POST["p7"];
 $p8 = $_POST["p8"];
 $p9 = $_POST["p9"];
 $p10 = $_POST["p10"];
-$ruta = $_SESSION['constancia'];
+$ruta = urldecode($_SESSION['constancia']);
 
 if (isset ($_POST['p2otro'])){
     if (!empty($_POST['p2otro']))
