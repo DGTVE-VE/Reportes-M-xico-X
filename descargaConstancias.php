@@ -79,10 +79,10 @@ $conn->close();
 $pass = 'dgtvemxconstancias';
 $method = 'AES-128-CBC';
 $ruta1 = openssl_decrypt($ruta, $method, $pass);
-//print $ruta;
-//print '<br>';
-//print $ruta1;
-//print '<br>';
+print $ruta;
+print '<br>';
+print $ruta1;
+print '<br>';
 $filename = '/var/www/constancia/' . $ruta1;
 download($filename);
 
@@ -103,22 +103,22 @@ function download($filename) {
 //        exit;
 //    }
     $ctype = getContentType($file_extension);
-//    print $filename;
-//    print '<br>';
-//    print $file_extension;
-//    print '<br>';
-//    print $ctype;
-    header("Pragma: public"); // required
-    header("Expires: 0");
-    header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-    header("Cache-Control: private", false); // required for certain browsers 
-    header("Content-Type: $ctype");
-    // change, added quotes to allow spaces in filenames, by Rajkumar Singh
-    header("Content-Disposition: attachment; filename=\"" . basename($filename) . "\";");
-    header("Content-Transfer-Encoding: binary");
-    header("Content-Length: " . filesize($filename));
-    readfile("$filename");
-    exit();
+    print $filename;
+    print '<br>';
+    print $file_extension;
+    print '<br>';
+    print $ctype;
+//    header("Pragma: public"); // required
+//    header("Expires: 0");
+//    header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+//    header("Cache-Control: private", false); // required for certain browsers 
+//    header("Content-Type: $ctype");
+//    // change, added quotes to allow spaces in filenames, by Rajkumar Singh
+//    header("Content-Disposition: attachment; filename=\"" . basename($filename) . "\";");
+//    header("Content-Transfer-Encoding: binary");
+//    header("Content-Length: " . filesize($filename));
+//    readfile("$filename");
+//    exit();
 }
 
 function getContentType($file_extension) {

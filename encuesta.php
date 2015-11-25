@@ -1,6 +1,6 @@
 <?php session_start();
 $_SESSION['constancia'] = urlencode( $_GET['constancia']);
-var_dump($_SESSION['constancia']);
+//var_dump($_SESSION['constancia']);
 ?>
 <!DOCTYPE html>
 <html>
