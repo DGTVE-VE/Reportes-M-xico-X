@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class that operate on table 'constancias'. Database Mysql.
  *
@@ -8,28 +9,27 @@
 class ConstanciasMySqlExtDAO extends ConstanciasMySqlDAO {
 
     public function queryPorCurso() {
-        $sql = "SELECT DISTINCT institucion,periodo, curso FROM constancias";
+        $sql = "SELECT DISTINCT institucion,periodo, curso FROM constancias WHERE  enviado = 0";
         $sqlQuery = new SqlQuery($sql);
         $result = QueryExecutor::execute($sqlQuery);
         return $result;
     }
 
-    public function queryByCursoPeriodo($periodo,$curso) {
-        $sql = "SELECT * FROM constancias WHERE curso = ? AND periodo = ?";
+    public function queryByCursoPeriodo($periodo, $curso) {
+        $sql = "SELECT * FROM constancias WHERE curso = ? AND periodo = ? AND enviado = 0";
         $sqlQuery = new SqlQuery($sql);
         $sqlQuery->set($curso);
-        $sqlQuery->set($periodo);        
+        $sqlQuery->set($periodo);
         return $this->getList($sqlQuery);
     }
-    
-    public function queryNoEnviados($curso, $periodo) {
-        $sql = "SELECT * FROM constancias WHERE curso = ? AND periodo = '' and enviado = 0";
-        $sqlQuery = new SqlQuery($sql);
-        $sqlQuery->set($curso);
-        $sqlQuery->set($periodo);                
-        return $this->getList($sqlQuery);        
-    } 
-    
+
+    public function updateEnviaConstancia($id) {
+        $sql = "UPDATE constancias SET enviado=1 WHERE id= ?";
+        $sqlQuery = new SqlQuery($sql);        
+        $sqlQuery->setNumber($id);
+        return $this->executeUpdate($sqlQuery);
+    }
+
 }
 
 ?>
