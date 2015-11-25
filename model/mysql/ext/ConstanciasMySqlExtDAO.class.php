@@ -21,7 +21,15 @@ class ConstanciasMySqlExtDAO extends ConstanciasMySqlDAO {
         $sqlQuery->set($periodo);        
         return $this->getList($sqlQuery);
     }
-
+    
+    public function queryNoEnviados($curso, $periodo) {
+        $sql = "SELECT * FROM constancias WHERE curso = ? AND periodo = '' and enviado = 0";
+        $sqlQuery = new SqlQuery($sql);
+        $sqlQuery->set($curso);
+        $sqlQuery->set($periodo);                
+        return $this->getList($sqlQuery);        
+    } 
+    
 }
 
 ?>

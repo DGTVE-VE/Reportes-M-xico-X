@@ -21,6 +21,6 @@
 
 		var $folio;
 
-		
+		var $enviado;
 	}
 ?>

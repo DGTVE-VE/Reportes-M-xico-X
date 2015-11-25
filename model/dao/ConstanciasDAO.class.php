@@ -65,6 +65,8 @@ interface ConstanciasDAO{
 
 	public function queryByFolio($value);
         
+        public function queryByEnviado($value);
+        
 
 	public function deleteById($value);
 
@@ -79,5 +81,7 @@ interface ConstanciasDAO{
 	public function deleteByPeriodo($value);
         	
         public function deleteByFolio($value);
+        
+        public function deleteByEnviado($value);
 }
 ?>
