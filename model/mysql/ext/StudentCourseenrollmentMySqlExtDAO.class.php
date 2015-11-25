@@ -17,7 +17,9 @@ class StudentCourseenrollmentMySqlExtDAO extends StudentCourseenrollmentMySqlDAO
                 WHERE 
                 s.course_id = c.course_id AND
                 s.user_id = u.id  AND 
-                s.is_active = 1 
+                s.is_active = 1 AND 
+                s.created >= c.inicio_inscripcion AND 
+                s.created <= c.fin_inscripcion
                 GROUP BY s.course_id
                 ";
 //        $sql = "SELECT  c.course_name, c.inicio_inscripcion, c.fin_inscripcion, c.inicio, c.fin,
