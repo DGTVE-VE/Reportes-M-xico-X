@@ -57,7 +57,7 @@ class ConstanciasMySqlDAO implements ConstanciasDAO{
  	 * @param ConstanciasMySql constancias
  	 */
 	public function insert($constancias){
-		$sql = 'INSERT INTO constancias (id, nombre, correo, institucion, curso, periodo, folio) VALUES (?, ?, ?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO constancias (id, nombre, correo, institucion, curso, periodo, folio) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->setNumber($constancias->id);
@@ -67,6 +67,7 @@ class ConstanciasMySqlDAO implements ConstanciasDAO{
                 $sqlQuery->set($constancias->curso);
                 $sqlQuery->set($constancias->periodo);
                 $sqlQuery->set($constancias->folio);
+                $sqlQuery->set($constancias->enviado);
 
 		$id = $this->executeInsert($sqlQuery);	
 		$constancias->id = $id;
@@ -79,7 +80,7 @@ class ConstanciasMySqlDAO implements ConstanciasDAO{
  	 * @param ConstanciasMySql constancias
  	 */
 	public function update($constancias){
-		$sql = 'UPDATE constancias SET id = ?, nombre = ?, correo = ?, institucion = ?, curso = ?, periodo = ?, folio = ? WHERE id = ?';
+		$sql = 'UPDATE constancias SET id = ?, nombre = ?, correo = ?, institucion = ?, curso = ?, periodo = ?, folio = ?, enviado = ? WHERE id = ?';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->setNumber($constancias->id);
@@ -89,6 +90,7 @@ class ConstanciasMySqlDAO implements ConstanciasDAO{
                 $sqlQuery->set($constancias->curso);
 		$sqlQuery->set($constancias->periodo);
 		$sqlQuery->set($constancias->folio);                                
+                $sqlQuery->set($constancias->enviado);                                
 
 		$sqlQuery->setNumber($constancias->id);
 		return $this->executeUpdate($sqlQuery);
@@ -150,6 +152,12 @@ class ConstanciasMySqlDAO implements ConstanciasDAO{
 		$sqlQuery = new SqlQuery($sql);
 		$sqlQuery->set($value);
 		return $this->getList($sqlQuery);
+	}  
+	public function queryByEnviado($value){
+		$sql = 'SELECT * FROM constancias WHERE enviado = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->getList($sqlQuery);
 	}        
 
 	public function deleteById($value){
@@ -199,7 +207,12 @@ class ConstanciasMySqlDAO implements ConstanciasDAO{
 		$sqlQuery->set($value);
 		return $this->executeUpdate($sqlQuery);
 	}
-
+	public function deleteByEnviado($value){
+		$sql = 'DELETE FROM constancias WHERE enviado = ?';
+		$sqlQuery = new SqlQuery($sql);
+		$sqlQuery->set($value);
+		return $this->executeUpdate($sqlQuery);
+	}
 	
 	/**
 	 * Read row

@@ -203,12 +203,12 @@ class AdminController {
                     "Content-Type: text/html; charset=UTF-8\r\n" .
                     'X-Mailer: PHP/' . phpversion();            
             mail($para, $titulo, $mensaje, $cabeceras);
+            
             $daoconstancias = DAOFactory::getConstanciasDAO();
             $resultConstancias = $daoconstancias->queryPorCurso();
-            print $path;
-            var_dump ($resultConstancias);
-//            $_SESSION[VISTA] = 'view/constancias.php';
-//            include "templates/admin.php";            
+                       
         }
     }
+    
+
 }
