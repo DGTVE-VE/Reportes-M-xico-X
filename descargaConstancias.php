@@ -71,10 +71,10 @@ $conn->close();
 $pass = 'dgtvemxconstancias';
 $method = 'AES-128-CBC';
 $ruta1 = openssl_decrypt($ruta, $method, $pass);
-print $ruta;
-print '<br>';
-print $ruta1;
-print '<br>';
+//print $ruta;
+//print '<br>';
+//print $ruta1;
+//print '<br>';
 $filename = '/var/www/constancia/' . $ruta1;
 download($filename);
 
@@ -87,13 +87,13 @@ function download($filename) {
     // addition by Jorg Weske
     $file_extension = strtolower(substr(strrchr($filename, "."), 1));
 
-//    if ($filename == "") {
-////            echo "<html><title>MéxicoX</title><body>ERROR: descarga de archivo NO ESPECIFICADA.</body></html>";
-//        exit;
-//    } elseif (!file_exists($filename)) {
-////            echo "<html><title>MéxicoX</title><body>ERROR: Archivo no encontrado.</body></html>";
-//        exit;
-//    }
+    if ($filename == "") {
+            echo "<html><title>MéxicoX</title><body>ERROR: descarga de archivo NO ESPECIFICADA.</body></html>";
+        exit;
+    } elseif (!file_exists($filename)) {
+            echo "<html><title>MéxicoX</title><body>ERROR: Archivo no encontrado.</body></html>";
+        exit;
+    }
     $ctype = getContentType($file_extension);
 //    print $filename;
 //    print '<br>';
