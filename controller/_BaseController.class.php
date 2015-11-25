@@ -22,6 +22,11 @@ class _BaseController {
     session_destroy();
     header('Location: /');
   }
+  
+  public function redirect ($url){
+        header("Location: http://" . SERVER_URL . $url);
+        exit ();
+    }
 
   public function validateUser() {
     if (!isset($_SESSION['usuario'])) {

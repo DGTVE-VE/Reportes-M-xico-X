@@ -12,7 +12,7 @@
  *
  * @author Israel
  */
-class AdminController {
+class AdminController extends _BaseController {
 
     public function defaultAction() {
         $_SESSION[VISTA] = 'view/inscribeEnCurso.php';
@@ -205,10 +205,11 @@ class AdminController {
             mail($para, $titulo, $mensaje, $cabeceras);
             $daoconstancias = DAOFactory::getConstanciasDAO();
             $resultConstancias = $daoconstancias->queryPorCurso();
-            print $path;
-            var_dump ($resultConstancias);
+//            print $path;
+//            var_dump ($resultConstancias);
 //            $_SESSION[VISTA] = 'view/constancias.php';
 //            include "templates/admin.php";            
         }
+        parent::redirect("admin/constancias");
     }
 }
