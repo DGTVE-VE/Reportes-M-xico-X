@@ -188,7 +188,7 @@ class AdminController {
         $method = 'AES-128-CBC';
         foreach ($resultPorCurso as $value) {
             $curso = str_replace ('/','-',$value->curso);                     
-            $path1 = $value->institucion."/".$curso."/".$value->periodo."/".$value->folio.".pdf";
+            $path1 = $value->institucion."/".$curso."/".$value->periodo."/".$value->id.".pdf";
             $encrypted = urlencode ( openssl_encrypt($path1, $method, $pass));
             $path = 'http://mx.televisioneducativa.gob.mx:81/encuesta.php?constancia='.$encrypted;
             $para = $value->correo;
