@@ -7,10 +7,19 @@
 	 */
 	class CourseName{
 		
-		var $CourseId;
+            var $id;
+            
+            var $courseId;
 
-		var $courseName;
+            var $courseName;
 
-		
+            var $inicio;
+            
+            var $fin;
+            
+            var $inicioInscripcion;
+            
+            var $finInscripcion;
+                        
 	}
 ?>

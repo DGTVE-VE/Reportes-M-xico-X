@@ -57,13 +57,20 @@ class CourseNameMySqlDAO implements CourseNameDAO{
  	 * @param CourseActionStateCoursererunstateMySql courseActionStateCoursererunstate
  	 */
 	public function insert($courseName){
-		$sql = 'INSERT INTO course_action_state_coursererunstate (created_time, updated_time, created_user_id, updated_user_id, course_key, action, state, should_display, message, source_course_key, display_name) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+		$sql = 'INSERT INTO course_name
+                        (course_id, course_name, inicio, fin, inicio_inscripcion, fin_inscripcion)
+                        VALUES (?,?,?,?,?,?);
+                        ';
 		$sqlQuery = new SqlQuery($sql);
 		
 		$sqlQuery->set($courseName->courseId);
 		$sqlQuery->set($courseName->courseName);
+                $sqlQuery->set($courseName->inicio);
+                $sqlQuery->set($courseName->fin);
+                $sqlQuery->set($courseName->inicio_inscripcion);
+                $sqlQuery->set($courseName->fin_inscripcion);                
 		$id = $this->executeInsert($sqlQuery);	
-		$courseActionStateCoursererunstate->courseId = $id;
+		$courseName->id = $id;
 		return $id;
 	}
 	
@@ -127,11 +134,15 @@ class CourseNameMySqlDAO implements CourseNameDAO{
 	 * @return courseNameMySql 
 	 */
 	protected function readRow($row){
-		$courseName = new CourseActionStateCoursererunstate();
-		
+		$courseName = new CourseName();
+		$courseName->id = $row['id'];
 		$courseName->courseId = $row['course_id'];
 		$courseName->courseName = $row['course_name'];
-
+                $courseName->fin = $row['fin'];
+                $courseName->inicio = $row['inicio'];
+                $courseName->inicioInscripcion = $row['inicio_inscripcion'];
+                $courseName->finInscripcion = $row['fin_inscripcion'];
+                
 		return $courseName;
 	}
 	

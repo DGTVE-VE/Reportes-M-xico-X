@@ -9,8 +9,7 @@
 class StudentCourseenrollmentMySqlExtDAO extends StudentCourseenrollmentMySqlDAO {
 
     public function querySumStudent() {
-
-        $sql = "SELECT  c.course_name, c.fecha_termino, c.estado_inscripcion,
+        $sql = "SELECT  c.course_name, c.inicio_inscripcion, c.fin_inscripcion, c.inicio, c.fin,
                 COUNT(*) 'Usuarios_registrados', 
                 SUM(u.is_active) 'Usuarios_activos', 
                 SUM(is_staff) 'Staff' 
@@ -20,20 +19,31 @@ class StudentCourseenrollmentMySqlExtDAO extends StudentCourseenrollmentMySqlDAO
                 s.user_id = u.id  AND 
                 s.is_active = 1 
                 GROUP BY s.course_id
-                UNION
-                SELECT 'TOTALES:', '', '', 
-                SUM(Usuarios_registrados) 'Total Registrados',
-                SUM(Usuarios_Activos) 'Total activos', 
-                SUM(Staff) 'Total Staff' 
-                FROM (SELECT  s.course_id, COUNT(*) 'Usuarios_registrados', 
-                                SUM(u.is_active) 'Usuarios_Activos', 
-		SUM(is_staff) 'Staff' 
-		FROM auth_user u, student_courseenrollment s, course_name c  
-		WHERE 
-		s.course_id = c.course_id AND
-		s.user_id = u.id  AND 
-		s.is_active = 1
-		GROUP BY s.course_id) as T;";
+                ";
+//        $sql = "SELECT  c.course_name, c.inicio_inscripcion, c.fin_inscripcion, c.inicio, c.fin,
+//                COUNT(*) 'Usuarios_registrados', 
+//                SUM(u.is_active) 'Usuarios_activos', 
+//                SUM(is_staff) 'Staff' 
+//                FROM auth_user u, student_courseenrollment s, course_name c 
+//                WHERE 
+//                s.course_id = c.course_id AND
+//                s.user_id = u.id  AND 
+//                s.is_active = 1 
+//                GROUP BY s.course_id
+//                UNION
+//                SELECT 'TOTALES:', '', '', '', '',
+//                SUM(Usuarios_registrados) 'Total Registrados',
+//                SUM(Usuarios_Activos) 'Total activos', 
+//                SUM(Staff) 'Total Staff' 
+//                FROM (SELECT  s.course_id, COUNT(*) 'Usuarios_registrados', 
+//                                SUM(u.is_active) 'Usuarios_Activos', 
+//		SUM(is_staff) 'Staff' 
+//		FROM auth_user u, student_courseenrollment s, course_name c  
+//		WHERE 
+//		s.course_id = c.course_id AND
+//		s.user_id = u.id  AND 
+//		s.is_active = 1
+//		GROUP BY s.course_id) as T;";
         $sqlQuery = new SqlQuery($sql);
         $result = QueryExecutor::execute($sqlQuery);
         return $result;
