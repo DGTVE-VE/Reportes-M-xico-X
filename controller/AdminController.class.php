@@ -191,7 +191,6 @@ class AdminController extends _BaseController {
             $path1 = $value->institucion."/".$curso."/".$value->periodo."/".$value->id.".pdf";
             $encrypted = urlencode ( openssl_encrypt($path1, $method, $pass));
             $path = 'http://mx.televisioneducativa.gob.mx:81/encuesta.php?constancia='.$encrypted;
-//            $path = 'localhost/encuesta.php?constancia='.$encrypted;            
             $para = $value->correo;
             $titulo = 'Constancia MéxicoX';
             $mensaje = '<html><body>';
