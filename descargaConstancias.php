@@ -1,4 +1,5 @@
 <?php
+session_start();
 $p1 = $_POST["p1"];
 $p2 = $_POST["p2"];
 $p3 = $_POST["p3"];
@@ -12,7 +13,7 @@ $p7 = $_POST["p7"];
 $p8 = $_POST["p8"];
 $p9 = $_POST["p9"];
 $p10 = $_POST["p10"];
-$ruta = $_POST['constancia'];
+$ruta = $_SESSION['constancia'];
 
 if (isset ($_POST['p2otro'])){
     if (!empty($_POST['p2otro']))
