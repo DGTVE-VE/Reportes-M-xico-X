@@ -3,7 +3,7 @@
 
     <head>
         <base href="http://<?php print $_SESSION[CONFIG]['host']['url']; ?>">
-        <!--<meta charset="utf-8">-->
+        <meta charset="utf-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,6 +30,9 @@
         <!-- Datepicker -->
         <link href="css/datepicker.css" rel="stylesheet" type="text/css">
         <!--<link href="css/datepicker.less" rel="stylesheet" type="text/css">-->
+        
+        <!--Gráficas esvuesta-->
+         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     </head>
 
     <body>
@@ -55,6 +58,7 @@
                         <a href="reportes/porcentajes"><i class="fa fa-fw fa-list-ol"></i>Por Porcentaje</a>
                         <!--<a href="reportes/descarga"><i class="fa fa-fw fa-download"></i>Descarga Reporte</a>-->
                         <!--<a href="reportes/usuariosActivos"><i class="fa fa-fw fa-user"></i>Usuarios Activos</a>-->
+                        <a href="reportes/encuestaGraficas"><i class="fa fa fa-bar-chart">Gráficas de encuesta</i></a>
                     </li>
             </nav>
 

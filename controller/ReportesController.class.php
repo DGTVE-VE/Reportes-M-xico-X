@@ -130,5 +130,27 @@ class ReportesController {
         $_SESSION[VISTA] = 'view/reporteUsuariosActivos.php';
         include "templates/index.php";
     }
-
+    
+   public function encuestaGrafica1() {
+       $queryPregunta = DAOFactory::getEncuestaDAO();
+       $result1 = $queryPregunta->queryGraficaPregunta1("pregunta1");
+       $result2 = $queryPregunta->queryGraficaPregunta2("pregunta2");       
+       $result3 = $queryPregunta->queryGraficaPregunta1("pregunta3");
+       $result4 = $queryPregunta->queryGraficaPregunta1("pregunta4");       
+       $result5 = $queryPregunta->queryGraficaPregunta1("pregunta5");       
+       $result6r1 = $queryPregunta->queryGraficaPregunta1("pregunta6r1");       
+       $result6r2 = $queryPregunta->queryGraficaPregunta1("pregunta6r2");       
+       $result6r3 = $queryPregunta->queryGraficaPregunta1("pregunta6r3");       
+       $result6r4 = $queryPregunta->queryGraficaPregunta1("pregunta6r4");       
+       $result7 = $queryPregunta->queryGraficaPregunta1("pregunta7");       
+       $result8 = $queryPregunta->queryGraficaPregunta1("pregunta8");              
+       $result9 = $queryPregunta->queryGraficaPregunta2("pregunta9");       
+       $result10 = $queryPregunta->queryGraficaPregunta1("pregunta10");              
+     
+       $resultTotalEncuesta = $queryPregunta->queryTotalEncuesta();
+        $_SESSION[VISTA] = 'view/encuestaGraficas.php';
+        include "templates/index.php";
+    }
+    
+ 
 }

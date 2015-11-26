@@ -1235,5 +1235,9 @@ class DAOFactory{
 	public static function getConstanciasDAO(){
 		return new ConstanciasMySqlExtDAO();
 	}        
+        
+	public static function getEncuestaDAO(){
+		return new EncuestaMySqlExtDAO();
+	}          
 }
 ?>
