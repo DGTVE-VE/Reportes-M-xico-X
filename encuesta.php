@@ -75,7 +75,7 @@ $_SESSION['constancia'] = urlencode( $_GET['constancia']);
                                 <td>
                                     <label class="radio-inline"><input required type="radio" name="p3" value="Muy buena">Muy buena</label>
                                     <label class="radio-inline"><input required type="radio" name="p3" value="Buena">Buena</label>                        
-                                    <label class="radio-inline"><input required type="radio" name="p3" value="Poco buena">Poco buena</label>
+                                    <label class="radio-inline"><input required type="radio" name="p3" value="Poco buena">Ni buena ni mala</label>
                                     <label class="radio-inline"><input required type="radio" name="p3" value="Mala">Mala</label>
                                     <label class="radio-inline"><input required type="radio" name="p3" value="Muy mala">Muy mala</label>
                                 </td>
@@ -86,7 +86,7 @@ $_SESSION['constancia'] = urlencode( $_GET['constancia']);
                                     <label class="radio-inline"><input required type="radio" name="p4" value="Muy satisfecho">Muy satisfecho</label>
                                     <label class="radio-inline"><input required type="radio" name="p4" value="Satisfecho">Satisfecho</label>                        
                                     <label class="radio-inline"><input required type="radio" name="p4" value="Poco satisfecho">Poco satisfecho</label>
-                                    <label class="radio-inline"><input required type="radio" name="p4" value="Mala">Mala</label>
+                                    <!--<label class="radio-inline"><input required type="radio" name="p4" value="Mala">Mala</label>-->
                                     <label class="radio-inline"><input required type="radio" name="p4" value="Nada satisfecho">Nada satisfecho</label>
                                 </td>
                             </tr> 
