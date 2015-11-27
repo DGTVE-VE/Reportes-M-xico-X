@@ -131,7 +131,7 @@ class ReportesController {
         include "templates/index.php";
     }
     
-   public function encuestaGrafica1() {
+   public function encuestaGraficas() {
        $queryPregunta = DAOFactory::getEncuestaDAO();
        $result1 = $queryPregunta->queryGraficaPregunta1("pregunta1");
        $result2 = $queryPregunta->queryGraficaPregunta2("pregunta2");       
