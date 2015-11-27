@@ -11,7 +11,7 @@ class EncuestaMySqlExtDAO extends EncuestaMySqlDAO {
     public function queryGraficaPregunta1($pregunta) {
         $sql = "SELECT count(*) as total, $pregunta, "
                 . "count(*)/(SELECT COUNT(*) FROM encuesta)*100 as '%' "
-                . "FROM encuesta GROUP BY $pregunta";
+                . "FROM encuesta GROUP BY $pregunta order by total desc";
         $sqlQuery = new SqlQuery($sql);
         $result = QueryExecutor::execute($sqlQuery);
         return $result;
@@ -24,6 +24,7 @@ class EncuestaMySqlExtDAO extends EncuestaMySqlDAO {
                 SELECT SUM(total), 'Otro', count(*)/(SELECT COUNT(*) FROM encuesta)*100 as '%'
                 FROM (
                 SELECT count(*) as total, $pregunta FROM encuesta  GROUP BY $pregunta HAVING COUNT(*) = 1) as T
+                order by total desc    
                 ";
         $sqlQuery = new SqlQuery($sql);
         $result = QueryExecutor::execute($sqlQuery);
@@ -31,7 +32,7 @@ class EncuestaMySqlExtDAO extends EncuestaMySqlDAO {
     }
     
     public function queryTotalEncuesta() {
-        $sql = "SELECT count(*) as total FROM encuesta";
+        $sql = "SELECT count(*) as tot FROM encuesta";
         $sqlQuery = new SqlQuery($sql);
         $result = QueryExecutor::execute($sqlQuery);
         return $result;

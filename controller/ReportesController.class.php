@@ -147,7 +147,7 @@ class ReportesController {
        $result9 = $queryPregunta->queryGraficaPregunta2("pregunta9");       
        $result10 = $queryPregunta->queryGraficaPregunta1("pregunta10");              
      
-       $resultTotalEncuesta = $queryPregunta->queryTotalEncuesta();
+       $totalEncuesta = $queryPregunta->queryTotalEncuesta();
         $_SESSION[VISTA] = 'view/encuestaGraficas.php';
         include "templates/index.php";
     }
