@@ -41,7 +41,7 @@ $_SESSION['constancia'] = urlencode( $_GET['constancia']);
                         <h3 class="text-center">Encuesta de satisfacción para usuarios de MéxicoX</h3>
                         <h3 class="panel-title colortit">Por favor, dedique unos minutos para completar esta encuesta.
                             La información que nos proporcione será utilizada para mejorar nuestro servicio.
-                            Al terminar de responder la encuesta presione el botón Guardar e iniciará la <strong>descarga de su constancia.</strong>
+                            Al terminar de responder la encuesta presione el botón "Guardar encuesta y descargar constancia"  e iniciará la <strong>descarga de su constancia.</strong>
                         </h3>
                     </div>
                     <div class="panel-body table-responsive">
@@ -179,7 +179,7 @@ $_SESSION['constancia'] = urlencode( $_GET['constancia']);
                             </tr>                 
 
                             <tr class="text-center">
-                                <td><input  type="submit" class="btn-success btn-lg" value="Descargar Constancia" /></td>
+                                <td><input  type="submit" class="btn-success btn-lg" value="Guardar encuesta y descargar constancia" /></td>
                             </tr>
                         </table>
                     </div>
