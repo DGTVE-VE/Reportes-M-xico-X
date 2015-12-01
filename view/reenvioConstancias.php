@@ -56,7 +56,7 @@ function mail_attachment($filename, $path, $mailto, $from_mail, $from_name, $rep
 }
 
 $my_file = '1.pdf'; // puede ser cualquier formato
-$my_path = $_SERVER['DOCUMENT_ROOT']."/constancia/IPN-UPEV_IPN-02-2015/2015-09-21/";
+$my_path = $_SERVER['DOCUMENT_ROOT']."/constancia/IPN/UPEV_IPN-02-2015/2015-09-21/";
 print $my_path;
 $my_name = "MéxicoX";
 $my_mail = "mexicox@septve.televisioneducativa.gob.mx";
