@@ -37,6 +37,13 @@ class EncuestaMySqlExtDAO extends EncuestaMySqlDAO {
         $result = QueryExecutor::execute($sqlQuery);
         return $result;
     }
+    
+        public function queryConstancia() {
+        $sql = "SELECT constancia FROM encuesta";
+        $sqlQuery = new SqlQuery($sql);
+        $result = QueryExecutor::execute($sqlQuery);
+        return $result;
+    }
 }
 
 ?>

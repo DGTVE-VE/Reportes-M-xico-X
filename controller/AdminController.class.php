@@ -210,5 +210,10 @@ class AdminController extends _BaseController {
         parent::redirect("admin/constancias");
     }
     
-
+    public function reenvioConstancias() {
+        $queryEncuesta = DAOFactory::getEncuestaDAO();
+        $resultadoEncuesta = $queryEncuesta->queryConstancia();        
+        $_SESSION[VISTA] = 'view/reenvioConstancias.php';
+        include "templates/admin.php";
+    }
 }
