@@ -55,9 +55,9 @@ function mail_attachment($filename, $path, $mailto, $from_mail, $from_name, $rep
 }
 
 $my_file = '1.pdf'; // puede ser cualquier formato
-$my_path = $_SERVER['DOCUMENT_ROOT']."constancia/IPN-UPEV_IPN-02-2015/2015-09-21/";
+$my_path = $_SERVER['DOCUMENT_ROOT']."/var/www/constancia/IPN-UPEV_IPN-02-2015/2015-09-21/";
 $my_name = "MéxicoX";
-$my_mail = "mexicox@televisioneducativa.gob.mx";
+$my_mail = "mexicox@septve.televisioneducativa.gob.mx";
 $my_replyto = "mexicox@televisioneducativa.gob.mx";
 $my_subject = "Constancia de tu curso en MéxicoX";
 $my_message = "Envío de constancia corregida";
