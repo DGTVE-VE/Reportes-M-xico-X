@@ -21,7 +21,7 @@ foreach ($enviaAgradece as $value) {
 
 
 function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subject, $message) {
-//    $file = $path.$filename;
+    $file = $filename;
     $file_size = filesize($file);
     $handle = fopen($file, "r");
 //    print 'file: '.$file.'<br>';
