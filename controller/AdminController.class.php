@@ -176,7 +176,7 @@ class AdminController extends _BaseController {
         $_SESSION[VISTA] = 'view/constancias.php';
         include "templates/admin.php";
     }
-    
+
     public function enviarCorreosConstancias() {
         $curso = filter_input(INPUT_POST, 'curso');
         $institucion = filter_input(INPUT_POST, 'institucion');
@@ -187,49 +187,48 @@ class AdminController extends _BaseController {
         $pass = 'dgtvemxconstancias';
         $method = 'AES-128-CBC';
         foreach ($resultPorCurso as $value) {
-            $curso = str_replace ('/','-',$value->curso);                     
-            $path1 = $value->institucion."/".$curso."/".$value->periodo."/".$value->id.".pdf";
-            $encrypted = urlencode ( openssl_encrypt($path1, $method, $pass));
-            $path = 'http://mx.televisioneducativa.gob.mx:81/encuesta.php?constancia='.$encrypted;
+            $curso = str_replace('/', '-', $value->curso);
+            $path1 = $value->institucion . "/" . $curso . "/" . $value->periodo . "/" . $value->id . ".pdf";
+            $encrypted = urlencode(openssl_encrypt($path1, $method, $pass));
+            $path = 'http://mx.televisioneducativa.gob.mx:81/encuesta.php?constancia=' . $encrypted;
             $para = $value->correo;
             $titulo = 'Constancia MéxicoX';
             $mensaje = '<html><body>';
             $mensaje .= '<h3>Da click en el siguiente enlace para descargar la constancia: </h3><br>';
-            $mensaje .= '<a href="'. $path .'">'. $path .'</a>';
+            $mensaje .= '<a href="' . $path . '">' . $path . '</a>';
             $mensaje .= '</body></html>';
-            $cabeceras = 
-                    'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
+            $cabeceras = 'Reply-To: mexicox@televisioneducativa.gob.mx' . "\r\n" .
                     "MIME-Version: 1.0\r\n" .
                     "Content-Type: text/html; charset=UTF-8\r\n" .
-                    'X-Mailer: PHP/' . phpversion();            
+                    'X-Mailer: PHP/' . phpversion();
             mail($para, $titulo, $mensaje, $cabeceras);
-            
+
             $daoconstancias = DAOFactory::getConstanciasDAO();
             $resultEnvioConstancia = $daoconstancias->updateEnviaConstancia($value->id);
         }
         parent::redirect("admin/constancias");
     }
-    
+
     public function reenvioConstancias() {
 //        $queryEncuesta = DAOFactory::getEncuestaDAO();
 //        $resultadoEncuesta = $queryEncuesta->queryConstancia();        
 //        $_SESSION[VISTA] = 'view/reenvioConstancias.php';
 //        include "templates/admin.php";
     }
-    
-  public function agradecimiento() {
-      $queryCursos = DAOFactory::getStudentCourseenrollmentDAO();
-      $resultadoCursos = $queryCursos->queryCursos();
+
+    public function agradecimiento() {
+        $queryCursos = DAOFactory::getStudentCourseenrollmentDAO();
+        $resultadoCursos = $queryCursos->queryCursos();
         $_SESSION[VISTA] = 'view/agradecimiento.php';
         include "templates/admin.php";
     }
-    
-  public function enviaAgradecimiento() {
-      $curso = $_POST['course_id'];
-      $queryEnviaGradece = DAOFactory::getStudentCourseenrollmentDAO();
-      $enviaAgradece = $queryEnviaGradece->queryRecordatorio($curso);
+
+    public function enviaAgradecimiento() {
+        $curso = $_POST['course_id'];
+        $queryEnviaGradece = DAOFactory::getStudentCourseenrollmentDAO();
+        $enviaAgradece = $queryEnviaGradece->queryAgradecimiento($curso);
         $_SESSION[VISTA] = 'view/agradecimientoEnvia.php';
         include "templates/admin.php";
     }
-    
+
 }
