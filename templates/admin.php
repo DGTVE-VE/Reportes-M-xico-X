@@ -54,12 +54,14 @@ $resultCurso = $queryCurso->queryAll();
                         <a href="admin/inscribirEnCurso"><i class="fa fa-fw fa-user-plus"></i>Inscripción en Línea</a>
                     </li>
                     <li>
-                        <a href="admin/enviarRecordatorio"><i class="fa fa-fw fa-user-plus"></i>Recordatorio de activación</a>
+                        <a href="admin/enviarRecordatorio"><i class="fa fa-bell-o"></i>Recordatorio de activación</a>
                     </li>
                     <li>
-                        <a href="admin/constancias"><i class="fa fa-fw fa-user-plus"></i>Generación de Constancias</a>
+                        <a href="admin/constancias"><i class="fa fa-graduation-cap"></i>Generación de Constancias</a>
                     </li>
-                    
+                    <li>
+                        <!--<a href="admin/agradecimiento"><i class="fa fa-gift"></i>Envío de Agradecimientos</a>-->
+                    </li>                    
             </nav>
 
             <div id="page-wrapper">

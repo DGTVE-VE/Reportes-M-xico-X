@@ -211,9 +211,25 @@ class AdminController extends _BaseController {
     }
     
     public function reenvioConstancias() {
-        $queryEncuesta = DAOFactory::getEncuestaDAO();
-        $resultadoEncuesta = $queryEncuesta->queryConstancia();        
-        $_SESSION[VISTA] = 'view/reenvioConstancias.php';
+//        $queryEncuesta = DAOFactory::getEncuestaDAO();
+//        $resultadoEncuesta = $queryEncuesta->queryConstancia();        
+//        $_SESSION[VISTA] = 'view/reenvioConstancias.php';
+//        include "templates/admin.php";
+    }
+    
+  public function agradecimiento() {
+      $queryCursos = DAOFactory::getStudentCourseenrollmentDAO();
+      $resultadoCursos = $queryCursos->queryCursos();
+        $_SESSION[VISTA] = 'view/agradecimiento.php';
         include "templates/admin.php";
     }
+    
+  public function enviaAgradecimiento() {
+      $curso = $_POST['course_id'];
+      $queryEnviaGradece = DAOFactory::getStudentCourseenrollmentDAO();
+      $enviaAgradece = $queryEnviaGradece->queryRecordatorio($curso);
+        $_SESSION[VISTA] = 'view/agradecimientoEnvia.php';
+        include "templates/admin.php";
+    }
+    
 }

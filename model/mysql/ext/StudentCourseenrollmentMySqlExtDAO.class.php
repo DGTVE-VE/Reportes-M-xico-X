@@ -65,7 +65,18 @@ class StudentCourseenrollmentMySqlExtDAO extends StudentCourseenrollmentMySqlDAO
         $result = QueryExecutor::execute($sqlQuery);
         return $result;
     }
-
+    public function queryCursos() {
+        $sql = "SELECT distinct(course_id) FROM mexicox.student_courseenrollment;";
+        $sqlQuery = new SqlQuery($sql);
+        $result = QueryExecutor::execute($sqlQuery);
+        return $result;
+    }        
+    public function queryRecordatorio($course_id) {
+        $sql = "SELECT * FROM mexicox.student_courseenrollment WHERE course_id = ?;";
+        $sqlQuery = new SqlQuery($sql);
+        $sqlQuery->set($course_id);
+        return $this->getRow($sqlQuery);
+    }
 }
 
 ?>
