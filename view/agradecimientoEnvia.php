@@ -6,7 +6,7 @@ foreach ($enviaAgradece as $value) {
     $usuario = $value['email'];
     $curso = str_replace('/', '-', $value['course_id']);
 //    $curso = str_replace(':', '-', $value['course_id']);
-    $nombre_fichero = 'agradecimientos/'.$curso.'.pdf';
+    $nombre_fichero = '/agradecimientos/'.$curso.'.pdf';
 
     if (file_exists($nombre_fichero)) {
         enviaCorreoAgradecimiento($nombre_fichero, $correo);

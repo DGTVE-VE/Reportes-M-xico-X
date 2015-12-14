@@ -66,14 +66,14 @@ class StudentCourseenrollmentMySqlExtDAO extends StudentCourseenrollmentMySqlDAO
         return $result;
     }
     public function queryCursos() {
-        $sql = "SELECT distinct(course_id) FROM mexicox.student_courseenrollment;";
+        $sql = "SELECT distinct(course_id) FROM student_courseenrollment;";
         $sqlQuery = new SqlQuery($sql);
         $result = QueryExecutor::execute($sqlQuery);
         return $result;
     }        
     public function queryAgradecimiento($course_id) {
         $sql = "SELECT a.id,a.user_id,a.course_id,b.email 
-                FROM mexicox.student_courseenrollment as a, auth_user as b 
+                FROM student_courseenrollment as a, auth_user as b 
                 WHERE a.course_id = ? and
                 a.user_id = b.id and a.is_active = 1 and b.email = 'soniamartinezctr@gmail.com';";
         $sqlQuery = new SqlQuery($sql);
