@@ -53,7 +53,7 @@ function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subj
 }
 
 function enviaCorreoAgradecimiento($nombre_fichero, $correo) {
-    $my_path = $_SERVER['DOCUMENT_ROOT'] . $nombre_fichero;
+    $my_path = $nombre_fichero;
     $my_name = "MéxicoX";
     $my_mail = "mexicox@septve.televisioneducativa.gob.mx";
     $my_replyto = "mexicox@televisioneducativa.gob.mx";
