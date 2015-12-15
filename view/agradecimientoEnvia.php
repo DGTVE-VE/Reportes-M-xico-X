@@ -9,8 +9,9 @@ foreach ($enviaAgradece as $value) {
     $nombre_fichero = $_SERVER['DOCUMENT_ROOT'] .'/agradecimientos/'.$curso.'.pdf';
 
     if (file_exists($nombre_fichero)) {
-        enviaCorreoAgradecimiento($nombre_fichero, $correo);
-//        print_r($nombre_fichero).'<br>';
+        enviaCorreoAgradecimiento($nombre_fichero, $usuario);
+        print_r($nombre_fichero).'<br>';
+        print $usuario;
     } else {
         echo "El fichero $nombre_fichero no existe";
     }
@@ -21,7 +22,7 @@ foreach ($enviaAgradece as $value) {
 
 
 function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subject, $message) {
-    $file = $filename;
+//    $file = $filename;
     $file_size = filesize($file);
     $handle = fopen($file, "r");
 //    print 'file: '.$file.'<br>';
@@ -52,14 +53,26 @@ function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subj
     }
 }
 
-function enviaCorreoAgradecimiento($nombre_fichero, $correo) {
+function enviaCorreoAgradecimiento($nombre_fichero, $usuario) {
     $my_path = $nombre_fichero;
     $my_name = "MéxicoX";
     $my_mail = "mexicox@septve.televisioneducativa.gob.mx";
     $my_replyto = "mexicox@televisioneducativa.gob.mx";
-    $my_subject = "Agradecemos tu participación en MéxicoX";
-    $my_message = "Agradecemos tu participación en MéxicoX";
-    mail_attachment($my_path, $correo, $my_mail, $my_name, $my_replyto, $my_subject, $my_message);
+    $my_subject = "MéxicoX agradece tu participación.";
+    $my_message = "Estimado usuario:   "
+                   ."Agradecemos tu interés y esfuerzo por ser parte de MéxicoX. Te invitamos a seguir dentro de nuestra comunidad de aprendizaje, utilizando esta plataforma y los diferentes cursos que ofrece de forma gratuita.";
+//    print $my_path;
+//    print '<br>';
+//    print $my_name;
+//    print '<br>';    
+//    print $my_mail;
+//    print '<br>';    
+//    print $my_replyto;
+//    print '<br>';    
+//    print $my_subject;
+//        print '<br>';
+//    print $my_message;
+    mail_attachment($my_path, $usuario, $my_mail, $my_name, $my_replyto, $my_subject, $my_message);
 }
 
 ?>
