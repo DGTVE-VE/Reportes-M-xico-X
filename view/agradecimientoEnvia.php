@@ -3,19 +3,31 @@
 //print_r($enviaAgradece);
 
 foreach ($enviaAgradece as $value) {
+    
     $usuario = $value['email'];
-    $curso = str_replace('/', '-', $value['course_id']);
-//    $curso = str_replace(':', '-', $value['course_id']);
-    $nombre_fichero = $_SERVER['DOCUMENT_ROOT'] .'/agradecimientos/'.$curso.'.pdf';
+    
+///////////********evaluar si encuentra ':'********/////
+    $pos = strpos($value['course_id'], ':');
+    if ($pos === false) {        
+    } else {
+        $curso = str_replace('/', '-', $value['course_id']);
+    }
+///////////********evaluar si encuentra '/'********/////
+    $pos = strpos($value['course_id'], '/');
+    if ($pos === false) {        
+    } else {
+        $curso = str_replace('/', '-', $value['course_id']);
+    }
+
+    $nombre_fichero = $_SERVER['DOCUMENT_ROOT'] . '/agradecimientos/' . $curso . '.pdf';
 
     if (file_exists($nombre_fichero)) {
         enviaCorreoAgradecimiento($nombre_fichero, $usuario);
-        print_r($nombre_fichero).'<br>';
+        print_r($nombre_fichero) . '<br>';
         print $usuario;
     } else {
         echo "El fichero $nombre_fichero no existe";
     }
-
 }
 
 //*****Envía archivo adjunto******//
@@ -59,19 +71,11 @@ function enviaCorreoAgradecimiento($nombre_fichero, $usuario) {
     $my_mail = "mexicox@septve.televisioneducativa.gob.mx";
     $my_replyto = "mexicox@televisioneducativa.gob.mx";
     $my_subject = "MéxicoX agradece tu participación.";
-    $my_message = "Estimado usuario:   "
-                   ."Agradecemos tu interés y esfuerzo por ser parte de MéxicoX. Te invitamos a seguir dentro de nuestra comunidad de aprendizaje, utilizando esta plataforma y los diferentes cursos que ofrece de forma gratuita.";
-//    print $my_path;
-//    print '<br>';
-//    print $my_name;
-//    print '<br>';    
-//    print $my_mail;
-//    print '<br>';    
-//    print $my_replyto;
-//    print '<br>';    
-//    print $my_subject;
-//        print '<br>';
-//    print $my_message;
+    $my_message = '<html><body>';
+    $my_message .= '<h2>Estimado usuario:</h2>';
+    $my_message .= '<br>';
+    $my_message .= '<h3>Agradecemos tu interés y esfuerzo por ser parte de MéxicoX. Te invitamos a seguir dentro de nuestra comunidad de aprendizaje, utilizando esta plataforma y los diferentes cursos que ofrece de forma gratuita.</h3>';
+    $my_message .= '</body></html>';
     mail_attachment($my_path, $usuario, $my_mail, $my_name, $my_replyto, $my_subject, $my_message);
 }
 
