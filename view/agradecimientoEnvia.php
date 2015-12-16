@@ -20,7 +20,7 @@ foreach ($enviaAgradece as $value) {
     $nombre_fichero = $_SERVER['DOCUMENT_ROOT'] . '/agradecimientos/' . $curso . '.pdf';
     
     if (file_exists($nombre_fichero)) {
-        enviaCorreoAgradecimiento($nombre_fichero, $usuario);
+        enviaCorreoAgradecimiento($curso, $usuario);
         print_r($nombre_fichero) . '<br>';
         print $usuario;
     } else {
@@ -32,7 +32,7 @@ foreach ($enviaAgradece as $value) {
 
 
 function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subject, $message) {
-//    $file = $filename;
+    $file = $filename;
     $file_size = filesize($file);
     $handle = fopen($file, "r");
 //    print 'file: '.$file.'<br>';
@@ -51,9 +51,9 @@ function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subj
     $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
     $header .= $message . "\r\n\r\n";
     $header .= "--" . $uid . "\r\n";
-    $header .= "Content-Type: application/octet-stream; name=\"" . $file . "\"\r\n"; // use different content types here
+    $header .= "Content-Type: application/octet-stream; name=\"" . $filename . "\"\r\n"; // use different content types here
     $header .= "Content-Transfer-Encoding: base64\r\n";
-    $header .= "Content-Disposition: attachment; filename=\"" . $file . "\"\r\n\r\n";
+    $header .= "Content-Disposition: attachment; filename=\"" . $filename . "\"\r\n\r\n";
     $header .= $content . "\r\n\r\n";
     $header .= "--" . $uid . "--";
     if (mail($mailto, $subject, "", $header)) {
@@ -63,8 +63,8 @@ function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subj
     }
 }
 
-function enviaCorreoAgradecimiento($nombre_fichero, $usuario) {
-    $my_path = $nombre_fichero;
+function enviaCorreoAgradecimiento($curso, $usuario) {
+    $my_path = $_SERVER['DOCUMENT_ROOT'] . "/agradecimientos/". $curso . '.pdf';
     $my_name = "MéxicoX";
     $my_mail = "mexicox@septve.televisioneducativa.gob.mx";
     $my_replyto = "mexicox@televisioneducativa.gob.mx";
