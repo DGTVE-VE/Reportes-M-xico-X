@@ -8,17 +8,21 @@ foreach ($enviaAgradece as $value) {
     
 ///////////********evaluar si encuentra ':'********/////
     $pos = strpos($value['course_id'], ':');
-    if ($pos === false) {                
-    } else {$curso = str_replace('/', '-', $value['course_id']);}
+    if ($pos === false) {        
+    } else {
+        $curso = str_replace('/', '-', $value['course_id']);
+    }
 ///////////********evaluar si encuentra '/'********/////
     $pos = strpos($value['course_id'], '/');
-    if ($pos === false) {         
-    } else {$curso = str_replace('/', '-', $value['course_id']);    }
+    if ($pos === false) {        
+    } else {
+        $curso = str_replace('/', '-', $value['course_id']);
+    }
 
     $nombre_fichero = $_SERVER['DOCUMENT_ROOT'] . '/agradecimientos/' . $curso . '.pdf';
-    
+
     if (file_exists($nombre_fichero)) {
-        enviaCorreoAgradecimiento($curso, $usuario);
+        enviaCorreoAgradecimiento($nombre_fichero, $usuario);
         print_r($nombre_fichero) . '<br>';
         print $usuario;
     } else {
@@ -30,7 +34,7 @@ foreach ($enviaAgradece as $value) {
 
 
 function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subject, $message) {
-    $file = $filename;
+//    $file = $filename;
     $file_size = filesize($file);
     $handle = fopen($file, "r");
 //    print 'file: '.$file.'<br>';
@@ -61,8 +65,8 @@ function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subj
     }
 }
 
-function enviaCorreoAgradecimiento($curso, $usuario) {
-    $my_path = $_SERVER['DOCUMENT_ROOT'] . "/agradecimientos/". $curso . '.pdf';
+function enviaCorreoAgradecimiento($nombre_fichero, $usuario) {
+    $my_path = $nombre_fichero;
     $my_name = "MéxicoX";
     $my_mail = "mexicox@septve.televisioneducativa.gob.mx";
     $my_replyto = "mexicox@televisioneducativa.gob.mx";
