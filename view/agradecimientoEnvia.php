@@ -51,14 +51,14 @@ function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subj
     $header .= "--" . $uid . "\r\n";
     $header .= "Content-type:text/plain; charset=iso-8859-1\r\n";
     $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-    $header .= $message . "\r\n\r\n";
+    //$header .= $message . "\r\n\r\n";
     $header .= "--" . $uid . "\r\n";
     $header .= "Content-Type: application/octet-stream; name=\"agradecimiento.pdf\"\r\n"; // use different content types here
     $header .= "Content-Transfer-Encoding: base64\r\n";
     $header .= "Content-Disposition: attachment; filename=\"agradecimiento.pdf\"\r\n\r\n";
     $header .= $content . "\r\n\r\n";
     $header .= "--" . $uid . "--";
-    if (mail($mailto, $subject, "", $header)) {
+    if (mail($mailto, $subject, $message, $header)) {
         echo "mail send ... OK"; // or use booleans here
     } else {
         echo "mail send ... ERROR!";
@@ -71,12 +71,12 @@ function enviaCorreoAgradecimiento($nombre_fichero, $usuario) {
     $my_mail = "mexicox@septve.televisioneducativa.gob.mx";
     $my_replyto = "mexicox@televisioneducativa.gob.mx";
     $my_subject = "MéxicoX agradece tu participación.";
-    $my_message = "Estimado usuario: Agradecemos tu interés y esfuerzo por ser parte de MéxicoX. Te invitamos a seguir dentro de nuestra comunidad de aprendizaje, utilizando esta plataforma y los diferentes cursos que ofrece de forma gratuita.";
-//    $my_message = '<html><body>';
-//    $my_message .= '<h2>Estimado usuario:</h2>';
-//    $my_message .= '<br>';
-//    $my_message .= '<h3>Agradecemos tu interés y esfuerzo por ser parte de MéxicoX. Te invitamos a seguir dentro de nuestra comunidad de aprendizaje, utilizando esta plataforma y los diferentes cursos que ofrece de forma gratuita.</h3>';
-//    $my_message .= '</body></html>';
+//    $my_message = "Estimado usuario: Agradecemos tu interés y esfuerzo por ser parte de MéxicoX. Te invitamos a seguir dentro de nuestra comunidad de aprendizaje, utilizando esta plataforma y los diferentes cursos que ofrece de forma gratuita.";
+    $my_message = '<html><body>';
+    $my_message .= '<h2>Estimado usuario:</h2>';
+    $my_message .= '<br>';
+    $my_message .= '<h3>Agradecemos tu interés y esfuerzo por ser parte de MéxicoX. Te invitamos a seguir dentro de nuestra comunidad de aprendizaje, utilizando esta plataforma y los diferentes cursos que ofrece de forma gratuita.</h3>';
+    $my_message .= '</body></html>';
     mail_attachment($my_path, $usuario, $my_mail, $my_name, $my_replyto, $my_subject, $my_message);
 }
 
