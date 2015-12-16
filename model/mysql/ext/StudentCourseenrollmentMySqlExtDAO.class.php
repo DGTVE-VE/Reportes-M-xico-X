@@ -75,8 +75,7 @@ class StudentCourseenrollmentMySqlExtDAO extends StudentCourseenrollmentMySqlDAO
         $sql = "SELECT a.id,a.user_id,a.course_id,b.email 
                 FROM student_courseenrollment as a, auth_user as b 
                 WHERE a.course_id = ? and
-                a.user_id = b.id and a.is_active = 1 and
-                b.email = 'soniamartinezctr@gmail.com';";
+                a.user_id = b.id and a.is_active = 1;";
         $sqlQuery = new SqlQuery($sql);
         $sqlQuery->set($course_id);
          $result = QueryExecutor::execute($sqlQuery);

@@ -23,8 +23,7 @@ foreach ($enviaAgradece as $value) {
 
     if (file_exists($nombre_fichero)) {
         enviaCorreoAgradecimiento($nombre_fichero, $usuario);
-        print_r($nombre_fichero) . '<br>';
-        print $usuario;
+         parent::redirect("admin/agradecimiento");
     } else {
         echo "El fichero $nombre_fichero no existe";
     }
