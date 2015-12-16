@@ -49,16 +49,16 @@ function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subj
     $header .= "Content-Type: multipart/mixed; boundary=\"" . $uid . "\"\r\n\r\n";
     $header .= "This is a multi-part message in MIME format.\r\n";
     $header .= "--" . $uid . "\r\n";
-    $header .= "Content-type:text/html; charset=iso-8859-1\r\n";
+    $header .= "Content-type:text/html; charset=UTF-8\r\n";
     $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-    //$header .= $message . "\r\n\r\n";
+    $header .= $message . "\r\n\r\n";
     $header .= "--" . $uid . "\r\n";
     $header .= "Content-Type: application/octet-stream; name=\"agradecimiento.pdf\"\r\n"; // use different content types here
     $header .= "Content-Transfer-Encoding: base64\r\n";
     $header .= "Content-Disposition: attachment; filename=\"agradecimiento.pdf\"\r\n\r\n";
     $header .= $content . "\r\n\r\n";
     $header .= "--" . $uid . "--";
-    if (mail($mailto, $subject, $message, $header)) {
+    if (mail($mailto, $subject, "", $header)) {
         echo "mail send ... OK"; // or use booleans here
     } else {
         echo "mail send ... ERROR!";
