@@ -49,7 +49,7 @@ function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subj
     $header .= "Content-Type: multipart/mixed; boundary=\"" . $uid . "\"\r\n\r\n";
     $header .= "This is a multi-part message in MIME format.\r\n";
     $header .= "--" . $uid . "\r\n";
-    $header .= "Content-type:text/plain; charset=iso-8859-1\r\n";
+    $header .= "Content-Type: text/html; charset=UTF-8\r\n";
     $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
     //$header .= $message . "\r\n\r\n";
     $header .= "--" . $uid . "\r\n";
