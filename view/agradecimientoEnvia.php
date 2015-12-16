@@ -8,15 +8,13 @@ foreach ($enviaAgradece as $value) {
     
 ///////////********evaluar si encuentra ':'********/////
     $pos = strpos($value['course_id'], ':');
-    if ($pos === false) {        
-    } else {
+    if ($pos === true) {        
         $curso = str_replace('/', '-', $value['course_id']);
-    }
+    } 
 ///////////********evaluar si encuentra '/'********/////
     $pos = strpos($value['course_id'], '/');
-    if ($pos === false) {        
-    } else {
-        $curso = str_replace('/', '-', $value['course_id']);
+    if ($pos === true) { 
+        $curso = str_replace('/', '-', $value['course_id']);    
     }
 
     $nombre_fichero = $_SERVER['DOCUMENT_ROOT'] . '/agradecimientos/' . $curso . '.pdf';
@@ -53,9 +51,9 @@ function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subj
     $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
     $header .= $message . "\r\n\r\n";
     $header .= "--" . $uid . "\r\n";
-    $header .= "Content-Type: application/octet-stream; name=\"" . $filename . "\"\r\n"; // use different content types here
+    $header .= "Content-Type: application/octet-stream; name=\"" . $file . "\"\r\n"; // use different content types here
     $header .= "Content-Transfer-Encoding: base64\r\n";
-    $header .= "Content-Disposition: attachment; filename=\"" . $filename . "\"\r\n\r\n";
+    $header .= "Content-Disposition: attachment; filename=\"" . $file . "\"\r\n\r\n";
     $header .= $content . "\r\n\r\n";
     $header .= "--" . $uid . "--";
     if (mail($mailto, $subject, "", $header)) {
