@@ -8,14 +8,12 @@ foreach ($enviaAgradece as $value) {
     
 ///////////********evaluar si encuentra ':'********/////
     $pos = strpos($value['course_id'], ':');
-    if ($pos === true) {        
-        $curso = str_replace('/', '-', $value['course_id']);
-    } 
+    if ($pos === false) {                
+    } else {$curso = str_replace('/', '-', $value['course_id']);}
 ///////////********evaluar si encuentra '/'********/////
     $pos = strpos($value['course_id'], '/');
-    if ($pos === true) { 
-        $curso = str_replace('/', '-', $value['course_id']);    
-    }
+    if ($pos === false) {         
+    } else {$curso = str_replace('/', '-', $value['course_id']);    }
 
     $nombre_fichero = $_SERVER['DOCUMENT_ROOT'] . '/agradecimientos/' . $curso . '.pdf';
     
