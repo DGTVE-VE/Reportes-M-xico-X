@@ -34,7 +34,7 @@ foreach ($enviaAgradece as $value) {
 
 
 function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subject, $message) {
-    $file = $filename;
+//    $file = $filename;
     $file_size = filesize($file);
     $handle = fopen($file, "r");
 //    print 'file: '.$file.'<br>';
@@ -53,9 +53,9 @@ function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subj
     $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
     $header .= $message . "\r\n\r\n";
     $header .= "--" . $uid . "\r\n";
-    $header .= "Content-Type: application/octet-stream; name=\"" . $filename . "\"\r\n"; // use different content types here
+    $header .= "Content-Type: application/octet-stream; name=\"agradecimiento.pdf\"\r\n"; // use different content types here
     $header .= "Content-Transfer-Encoding: base64\r\n";
-    $header .= "Content-Disposition: attachment; filename=\"" . $filename . "\"\r\n\r\n";
+    $header .= "Content-Disposition: attachment; filename=\"agradecimiento.pdf\"\r\n\r\n";
     $header .= $content . "\r\n\r\n";
     $header .= "--" . $uid . "--";
     if (mail($mailto, $subject, "", $header)) {
