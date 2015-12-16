@@ -22,7 +22,7 @@ foreach ($enviaAgradece as $value) {
     $nombre_fichero = $_SERVER['DOCUMENT_ROOT'] . '/agradecimientos/' . $curso . '.pdf';
     
     if (file_exists($nombre_fichero)) {
-        enviaCorreoAgradecimiento($curso, $usuario);
+        enviaCorreoAgradecimiento($nombre_fichero, $usuario);
         print_r($nombre_fichero) . '<br>';
         print $usuario;
     } else {
@@ -66,7 +66,7 @@ function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subj
 }
 
 function enviaCorreoAgradecimiento($nombre_fichero, $usuario) {
-    $my_path = $_SERVER['DOCUMENT_ROOT'] . '/agradecimientos/'.$curso;
+    $my_path = $nombre_fichero;
     $my_name = "MéxicoX";
     $my_mail = "mexicox@septve.televisioneducativa.gob.mx";
     $my_replyto = "mexicox@televisioneducativa.gob.mx";
