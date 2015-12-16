@@ -51,7 +51,7 @@ function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subj
     $header .= "--" . $uid . "\r\n";
     $header .= "Content-Type: text/html; charset=UTF-8\r\n";
     $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
-    //$header .= $message . "\r\n\r\n";
+    $header .= $message . "\r\n\r\n";
     $header .= "--" . $uid . "\r\n";
     $header .= "Content-Type: application/octet-stream; name=\"agradecimiento.pdf\"\r\n"; // use different content types here
     $header .= "Content-Transfer-Encoding: base64\r\n";
