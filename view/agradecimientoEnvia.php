@@ -52,9 +52,9 @@ function mail_attachment($file, $mailto, $from_mail, $from_name, $replyto, $subj
     $header .= "Content-Transfer-Encoding: 7bit\r\n\r\n";
     $header .= $message . "\r\n\r\n";
     $header .= "--" . $uid . "\r\n";
-    $header .= "Content-Type: application/octet-stream; name=\"agradecimiento.pdf\"\r\n"; // use different content types here
+    $header .= "Content-Type: application/octet-stream; name=\"Agradecimiento.pdf\"\r\n"; // use different content types here
     $header .= "Content-Transfer-Encoding: base64\r\n";
-    $header .= "Content-Disposition: attachment; filename=\"agradecimiento.pdf\"\r\n\r\n";
+    $header .= "Content-Disposition: attachment; filename=\"Agradecimiento.pdf\"\r\n\r\n";
     $header .= $content . "\r\n\r\n";
     $header .= "--" . $uid . "--";
     if (mail($mailto, $subject, "", $header)) {
