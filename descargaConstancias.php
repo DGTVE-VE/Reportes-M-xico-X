@@ -91,7 +91,7 @@ function download($filename) {
             echo "<html><title>MéxicoX</title><body>ERROR: descarga de archivo NO ESPECIFICADA.</body></html>";
         exit;
     } elseif (!file_exists($filename)) {
-            echo "<html><title>MéxicoX</title><body>ERROR: Archivo no encontrado.$filename</body></html>";
+            echo "<html><title>MéxicoX</title><body>ERROR: Archivo no encontrado. la url es ::$filename</body></html>";
         exit;
     }
     $ctype = getContentType($file_extension);
