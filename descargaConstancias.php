@@ -25,9 +25,9 @@ if (isset ($_POST['p9otro'])){
         $p9 = $_POST['p9otro'];
 }
 
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "root";
-$password = "417624edx";
+$password = "97090771";
 $dbname = "edxapp";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
