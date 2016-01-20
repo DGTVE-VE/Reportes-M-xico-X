@@ -75,7 +75,7 @@ $ruta1 = openssl_decrypt($ruta, $method, $pass);
 //print '<br>';
 //print $ruta1;
 //print '<br>';
-$filename = '/var/www/constancia/' . $ruta1;
+$filename = '/var/www/html/constancia/' . $ruta1;
 download($filename);
 
 function download($filename) {
