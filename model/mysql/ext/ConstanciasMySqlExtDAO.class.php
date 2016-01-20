@@ -9,14 +9,14 @@
 class ConstanciasMySqlExtDAO extends ConstanciasMySqlDAO {
 
     public function queryPorCurso() {
-        $sql = "SELECT DISTINCT institucion,periodo, curso FROM constancias WHERE  enviado = 0 AND correo = 'soniamartinezctr@gmail.com'";
+        $sql = "SELECT DISTINCT institucion,periodo, curso FROM constancias WHERE  enviado = 0";
         $sqlQuery = new SqlQuery($sql);
         $result = QueryExecutor::execute($sqlQuery);
         return $result;
     }
 
     public function queryByCursoPeriodo($periodo, $curso) {
-        $sql = "SELECT * FROM constancias WHERE curso = ? AND periodo = ? AND enviado = 0 AND correo = 'soniamartinezctr@gmail.com'";
+        $sql = "SELECT * FROM constancias WHERE curso = ? AND periodo = ? AND enviado = 0";
         $sqlQuery = new SqlQuery($sql);
         $sqlQuery->set($curso);
         $sqlQuery->set($periodo);
